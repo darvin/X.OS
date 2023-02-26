@@ -21,6 +21,7 @@
 		9AE6D92929AB8C99004B7349 /* WindowLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D92829AB8C99004B7349 /* WindowLayoutView.swift */; };
 		9AE6D92D29AB8DDE004B7349 /* DisplayListLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D92C29AB8DDE004B7349 /* DisplayListLayoutView.swift */; };
 		9AE6D92F29AB8E04004B7349 /* DisplayLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D92E29AB8E04004B7349 /* DisplayLayoutView.swift */; };
+		9AE6D93129ABB8F8004B7349 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D93029ABB8F8004B7349 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		9AE6D92829AB8C99004B7349 /* WindowLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowLayoutView.swift; sourceTree = "<group>"; };
 		9AE6D92C29AB8DDE004B7349 /* DisplayListLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayListLayoutView.swift; sourceTree = "<group>"; };
 		9AE6D92E29AB8E04004B7349 /* DisplayLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLayoutView.swift; sourceTree = "<group>"; };
+		9AE6D93029ABB8F8004B7349 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				9A70652929AB83270049E29B /* Assets.xcassets */,
 				9A70652E29AB83270049E29B /* OSXLogger.entitlements */,
 				9A70652B29AB83270049E29B /* Preview Content */,
+				9AE6D93029ABB8F8004B7349 /* main.swift */,
 			);
 			path = OSXLogger;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				9AE6D92D29AB8DDE004B7349 /* DisplayListLayoutView.swift in Sources */,
 				9A70652629AB83260049E29B /* OSXLoggerApp.swift in Sources */,
 				9AE6D92929AB8C99004B7349 /* WindowLayoutView.swift in Sources */,
+				9AE6D93129ABB8F8004B7349 /* main.swift in Sources */,
 				9A70655729AB848E0049E29B /* MaterialView.swift in Sources */,
 				9A70655629AB848E0049E29B /* CapturePreview.swift in Sources */,
 				9A70655229AB84540049E29B /* ScreenRecorder.swift in Sources */,

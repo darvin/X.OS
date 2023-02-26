@@ -14,8 +14,10 @@ struct DisplayListLayoutView: View {
         HStack {
             ForEach(screenRecorder.availableDisplays, id: \.self) { display in
                 VStack {
-                    DisplayLayoutView(windows:screenRecorder.availableWindowsPerDisplay[display]!, display:display)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    if let windows = screenRecorder.availableWindowsPerDisplay[display] {
+                        DisplayLayoutView(windows:windows, display:display)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    }
 
 
                 }

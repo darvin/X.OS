@@ -32,7 +32,7 @@ struct WindowLayoutView: View {
 
     var body: some View {
         ZStack {
-            Color.red.opacity(0.4)
+            Color.red.opacity(0.01)
             Rectangle()
                 .stroke(Color.yellow, lineWidth: 2)
             VStack {

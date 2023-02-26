@@ -49,7 +49,7 @@ struct DisplayLayoutView: View {
 
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .aspectRatio(CGSize(width: display.width, height: display.height), contentMode: .fit)
-        .background(Color.green)
+        .background(Color.green.opacity(0.01))
 
         
     }
