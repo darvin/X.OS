@@ -18,6 +18,9 @@
 		9A70655329AB84540049E29B /* CaptureEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70655129AB84540049E29B /* CaptureEngine.swift */; };
 		9A70655629AB848E0049E29B /* CapturePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70655429AB848E0049E29B /* CapturePreview.swift */; };
 		9A70655729AB848E0049E29B /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70655529AB848E0049E29B /* MaterialView.swift */; };
+		9AE6D92929AB8C99004B7349 /* WindowLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D92829AB8C99004B7349 /* WindowLayoutView.swift */; };
+		9AE6D92D29AB8DDE004B7349 /* DisplayListLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D92C29AB8DDE004B7349 /* DisplayListLayoutView.swift */; };
+		9AE6D92F29AB8E04004B7349 /* DisplayLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D92E29AB8E04004B7349 /* DisplayLayoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		9A70655129AB84540049E29B /* CaptureEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureEngine.swift; sourceTree = "<group>"; };
 		9A70655429AB848E0049E29B /* CapturePreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturePreview.swift; sourceTree = "<group>"; };
 		9A70655529AB848E0049E29B /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		9AE6D92829AB8C99004B7349 /* WindowLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowLayoutView.swift; sourceTree = "<group>"; };
+		9AE6D92C29AB8DDE004B7349 /* DisplayListLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayListLayoutView.swift; sourceTree = "<group>"; };
+		9AE6D92E29AB8E04004B7349 /* DisplayLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLayoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +109,9 @@
 		9A70652429AB83260049E29B /* OSXLogger */ = {
 			isa = PBXGroup;
 			children = (
-				9A70655429AB848E0049E29B /* CapturePreview.swift */,
-				9A70655529AB848E0049E29B /* MaterialView.swift */,
-				9A70655129AB84540049E29B /* CaptureEngine.swift */,
-				9A70655029AB84540049E29B /* ScreenRecorder.swift */,
+				9AE6D92B29AB8CB3004B7349 /* Capture */,
+				9AE6D92A29AB8CA9004B7349 /* Views */,
 				9A70652529AB83260049E29B /* OSXLoggerApp.swift */,
-				9A70652729AB83260049E29B /* ContentView.swift */,
 				9A70652929AB83270049E29B /* Assets.xcassets */,
 				9A70652E29AB83270049E29B /* OSXLogger.entitlements */,
 				9A70652B29AB83270049E29B /* Preview Content */,
@@ -139,6 +142,28 @@
 				9A70654329AB83270049E29B /* OSXLoggerUITestsLaunchTests.swift */,
 			);
 			path = OSXLoggerUITests;
+			sourceTree = "<group>";
+		};
+		9AE6D92A29AB8CA9004B7349 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9AE6D92C29AB8DDE004B7349 /* DisplayListLayoutView.swift */,
+				9AE6D92E29AB8E04004B7349 /* DisplayLayoutView.swift */,
+				9AE6D92829AB8C99004B7349 /* WindowLayoutView.swift */,
+				9A70652729AB83260049E29B /* ContentView.swift */,
+				9A70655429AB848E0049E29B /* CapturePreview.swift */,
+				9A70655529AB848E0049E29B /* MaterialView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9AE6D92B29AB8CB3004B7349 /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				9A70655129AB84540049E29B /* CaptureEngine.swift */,
+				9A70655029AB84540049E29B /* ScreenRecorder.swift */,
+			);
+			path = Capture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +298,10 @@
 			files = (
 				9A70655329AB84540049E29B /* CaptureEngine.swift in Sources */,
 				9A70652829AB83260049E29B /* ContentView.swift in Sources */,
+				9AE6D92F29AB8E04004B7349 /* DisplayLayoutView.swift in Sources */,
+				9AE6D92D29AB8DDE004B7349 /* DisplayListLayoutView.swift in Sources */,
 				9A70652629AB83260049E29B /* OSXLoggerApp.swift in Sources */,
+				9AE6D92929AB8C99004B7349 /* WindowLayoutView.swift in Sources */,
 				9A70655729AB848E0049E29B /* MaterialView.swift in Sources */,
 				9A70655629AB848E0049E29B /* CapturePreview.swift in Sources */,
 				9A70655229AB84540049E29B /* ScreenRecorder.swift in Sources */,

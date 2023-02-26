@@ -22,6 +22,13 @@ struct ContentView: View {
     @StateObject var screenRecorder = ScreenRecorder()
     
     var body: some View {
+        TabView {
+            DisplayListLayoutView(screenRecorder: screenRecorder)
+
+                .tabItem {
+                    Label("windows", systemImage: "grid")
+                }
+
             screenRecorder.capturePreview
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .aspectRatio(screenRecorder.contentSize, contentMode: .fit)
@@ -35,11 +42,10 @@ struct ContentView: View {
                             .background(Color(white: 0.0, opacity: 0.5))
                     }
                 }
-//                .onAppear {
-//                    Task {
-//                        await screenRecorder.start()
-//                    }
-//                }
+                .tabItem {
+                    Label("video", systemImage: "monitor")
+                }
+        }
         .overlay {
             if isUnauthorized {
                 VStack() {

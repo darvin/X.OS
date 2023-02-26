@@ -50,10 +50,37 @@ class ScreenRecorder: ObservableObject {
         CapturePreview()
     }()
     
-    private var availableApps = [SCRunningApplication]()
+    @Published private(set) var availableApps = [SCRunningApplication]()
     @Published private(set) var availableDisplays = [SCDisplay]()
-    @Published private(set) var availableWindows = [SCWindow]()
-    
+    @Published private(set) var availableWindows = [SCWindow]() {
+        didSet {
+            guard let windowList = CGWindowListCopyWindowInfo(.optionOnScreenOnly, kCGNullWindowID) as? [[String: Any]] else { return }
+
+            var windowsPerDisplay = [SCDisplay:[SCWindow]]()
+            for display in availableDisplays {
+                windowsPerDisplay[display] = [SCWindow]()
+                let dspyRect = CGDisplayBounds(display.displayID)
+                for windowDict in windowList {
+                    var windowRect = CGRect.zero
+                    let boundsDict = windowDict[kCGWindowBounds as String] as! CFDictionary
+                    CGRectMakeWithDictionaryRepresentation(boundsDict, &windowRect)
+                    
+                    if dspyRect.contains(windowRect) {
+                        if let scWindow = availableWindows.first(where: { $0.windowID == windowDict[kCGWindowNumber as String] as! UInt32  }) {
+                            windowsPerDisplay[display]?.append(scWindow)
+                        }
+                    }
+                }
+                windowsPerDisplay[display] = windowsPerDisplay[display]?.sorted(by: {
+                    $0.windowLayer < $1.windowLayer
+                })
+            }
+            availableWindowsPerDisplay = windowsPerDisplay
+
+        }
+    }
+    @Published private(set) var availableWindowsPerDisplay = [SCDisplay:[SCWindow]]()
+
     
     // The object that manages the SCStream.
     private let captureEngine = CaptureEngine()
@@ -80,7 +107,7 @@ class ScreenRecorder: ObservableObject {
         guard !isSetup else { return }
         // Refresh the lists of capturable content.
         await self.refreshAvailableContent()
-        Timer.publish(every: 3, on: .main, in: .common).autoconnect().sink { [weak self] _ in
+        Timer.publish(every: 0.3, on: .main, in: .common).autoconnect().sink { [weak self] _ in
             guard let self = self else { return }
             Task {
                 await self.refreshAvailableContent()
