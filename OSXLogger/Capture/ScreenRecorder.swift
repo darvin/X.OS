@@ -65,7 +65,7 @@ class ScreenRecorder: ObservableObject {
                     let boundsDict = windowDict[kCGWindowBounds as String] as! CFDictionary
                     CGRectMakeWithDictionaryRepresentation(boundsDict, &windowRect)
                     
-                    if dspyRect.contains(windowRect) {
+                    if dspyRect.contains(windowRect) || dspyRect.intersects(windowRect) {
                         if let scWindow = availableWindows.first(where: { $0.windowID == windowDict[kCGWindowNumber as String] as! UInt32  }) {
                             windowsPerDisplay[display]?.append(scWindow)
                         }
