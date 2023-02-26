@@ -35,6 +35,11 @@ struct ContentView: View {
                             .background(Color(white: 0.0, opacity: 0.5))
                     }
                 }
+//                .onAppear {
+//                    Task {
+//                        await screenRecorder.start()
+//                    }
+//                }
         .overlay {
             if isUnauthorized {
                 VStack() {

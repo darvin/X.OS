@@ -62,7 +62,8 @@ class ScreenRecorder: ObservableObject {
     
     // Combine subscribers.
     private var subscriptions = Set<AnyCancellable>()
-    
+//        var canRecord: Bool = true
+
     var canRecord: Bool {
         get async {
             do {
@@ -74,7 +75,7 @@ class ScreenRecorder: ObservableObject {
             }
         }
     }
-    
+//
     func monitorAvailableContent() async {
         guard !isSetup else { return }
         // Refresh the lists of capturable content.
