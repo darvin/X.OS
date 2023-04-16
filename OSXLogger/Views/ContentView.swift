@@ -12,20 +12,22 @@ import SwiftUI
 import ScreenCaptureKit
 import OSLog
 import Combine
+import KeyboardShortcuts
 
 struct ContentView: View {
     
     @State var userStopped = false
     @State var disableInput = false
     @State var isUnauthorized = false
-    
+    @State var isOverlayVisible = false
+
     @StateObject var screenRecorder = ScreenRecorder()
     
     var body: some View {
         let previewScale = 0.2
         ZStack (alignment: .bottomTrailing) {
 
-
+/*
             screenRecorder.capturePreview
                 .border(Color.green)
                 .frame(maxWidth: screenRecorder.contentSize.width*previewScale, maxHeight: screenRecorder.contentSize.height*previewScale)
@@ -40,10 +42,11 @@ struct ContentView: View {
                             .background(Color(white: 0.0, opacity: 0.5))
                     }
                 }
-                .opacity(0.4)
+                .opacity(0.4)*/
                
             DisplayListLayoutView(screenRecorder: screenRecorder)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .opacity(isOverlayVisible ? 0.9 : 0.0)
 
         }
         .overlay {
@@ -74,6 +77,12 @@ struct ContentView: View {
                     disableInput = true
                 }
             }
+            
+            
+            KeyboardShortcuts.onKeyUp(for: .toggleOverlay) { [self] in
+                self.isOverlayVisible.toggle()
+            }
+
         }
     }
 }

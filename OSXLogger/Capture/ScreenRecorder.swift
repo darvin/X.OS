@@ -208,11 +208,11 @@ class ScreenRecorder: ObservableObject {
         }
         
         // Set the capture interval at 60 fps.
-        streamConfig.minimumFrameInterval = CMTime(value: 1, timescale: 60)
+        streamConfig.minimumFrameInterval = CMTime(value: 1, timescale: 5)
         
         // Increase the depth of the frame queue to ensure high fps at the expense of increasing
         // the memory footprint of WindowServer.
-        streamConfig.queueDepth = 5
+        streamConfig.queueDepth = 1
         
         return streamConfig
     }
@@ -250,6 +250,11 @@ class ScreenRecorder: ObservableObject {
             .filter { $0.owningApplication != nil && $0.owningApplication?.applicationName != "" }
         // Remove this app's window from the list.
             .filter { $0.owningApplication?.bundleIdentifier != Bundle.main.bundleIdentifier }
+        // Remove dock windows
+//            .filter {
+//                $0.owningApplication?.bundleIdentifier != "com.apple.dock"
+//            }
+
     }
 }
 

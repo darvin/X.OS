@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A06C6A129EC397300CF0FAA /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 9A06C6A029EC397300CF0FAA /* KeyboardShortcuts */; };
+		9A06C6A429EC39C300CF0FAA /* KeyboardShortcutsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6A329EC39C300CF0FAA /* KeyboardShortcutsConstants.swift */; };
+		9A06C6A729EC3A0600CF0FAA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6A629EC3A0600CF0FAA /* SettingsView.swift */; };
 		9A70652629AB83260049E29B /* OSXLoggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70652529AB83260049E29B /* OSXLoggerApp.swift */; };
 		9A70652829AB83260049E29B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70652729AB83260049E29B /* ContentView.swift */; };
 		9A70652A29AB83270049E29B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A70652929AB83270049E29B /* Assets.xcassets */; };
@@ -42,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A06C6A329EC39C300CF0FAA /* KeyboardShortcutsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardShortcutsConstants.swift; sourceTree = "<group>"; };
+		9A06C6A629EC3A0600CF0FAA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9A70652229AB83260049E29B /* OSXLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSXLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A70652529AB83260049E29B /* OSXLoggerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSXLoggerApp.swift; sourceTree = "<group>"; };
 		9A70652729AB83260049E29B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A06C6A129EC397300CF0FAA /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +94,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A06C6A229EC398500CF0FAA /* KeyboardShortcuts */ = {
+			isa = PBXGroup;
+			children = (
+				9A06C6A329EC39C300CF0FAA /* KeyboardShortcutsConstants.swift */,
+			);
+			path = KeyboardShortcuts;
+			sourceTree = "<group>";
+		};
+		9A06C6A529EC39DF00CF0FAA /* Overlay */ = {
+			isa = PBXGroup;
+			children = (
+				9AE6D92C29AB8DDE004B7349 /* DisplayListLayoutView.swift */,
+				9AE6D92E29AB8E04004B7349 /* DisplayLayoutView.swift */,
+				9AE6D92829AB8C99004B7349 /* WindowLayoutView.swift */,
+				9A70655429AB848E0049E29B /* CapturePreview.swift */,
+				9A70655529AB848E0049E29B /* MaterialView.swift */,
+			);
+			path = Overlay;
+			sourceTree = "<group>";
+		};
 		9A70651929AB83260049E29B = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +137,7 @@
 		9A70652429AB83260049E29B /* OSXLogger */ = {
 			isa = PBXGroup;
 			children = (
+				9A06C6A229EC398500CF0FAA /* KeyboardShortcuts */,
 				9AE6D92B29AB8CB3004B7349 /* Capture */,
 				9AE6D92A29AB8CA9004B7349 /* Views */,
 				9A70652529AB83260049E29B /* OSXLoggerApp.swift */,
@@ -150,12 +177,9 @@
 		9AE6D92A29AB8CA9004B7349 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9AE6D92C29AB8DDE004B7349 /* DisplayListLayoutView.swift */,
-				9AE6D92E29AB8E04004B7349 /* DisplayLayoutView.swift */,
-				9AE6D92829AB8C99004B7349 /* WindowLayoutView.swift */,
+				9A06C6A529EC39DF00CF0FAA /* Overlay */,
 				9A70652729AB83260049E29B /* ContentView.swift */,
-				9A70655429AB848E0049E29B /* CapturePreview.swift */,
-				9A70655529AB848E0049E29B /* MaterialView.swift */,
+				9A06C6A629EC3A0600CF0FAA /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +209,9 @@
 			dependencies = (
 			);
 			name = OSXLogger;
+			packageProductDependencies = (
+				9A06C6A029EC397300CF0FAA /* KeyboardShortcuts */,
+			);
 			productName = OSXLogger;
 			productReference = 9A70652229AB83260049E29B /* OSXLogger.app */;
 			productType = "com.apple.product-type.application";
@@ -257,6 +284,9 @@
 				Base,
 			);
 			mainGroup = 9A70651929AB83260049E29B;
+			packageReferences = (
+				9A06C69F29EC397300CF0FAA /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+			);
 			productRefGroup = 9A70652329AB83260049E29B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -304,9 +334,11 @@
 				9AE6D92F29AB8E04004B7349 /* DisplayLayoutView.swift in Sources */,
 				9AE6D92D29AB8DDE004B7349 /* DisplayListLayoutView.swift in Sources */,
 				9A70652629AB83260049E29B /* OSXLoggerApp.swift in Sources */,
+				9A06C6A429EC39C300CF0FAA /* KeyboardShortcutsConstants.swift in Sources */,
 				9AE6D92929AB8C99004B7349 /* WindowLayoutView.swift in Sources */,
 				9AE6D93129ABB8F8004B7349 /* main.swift in Sources */,
 				9A70655729AB848E0049E29B /* MaterialView.swift in Sources */,
+				9A06C6A729EC3A0600CF0FAA /* SettingsView.swift in Sources */,
 				9A70655629AB848E0049E29B /* CapturePreview.swift in Sources */,
 				9A70655229AB84540049E29B /* ScreenRecorder.swift in Sources */,
 			);
@@ -624,6 +656,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9A06C69F29EC397300CF0FAA /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9A06C6A029EC397300CF0FAA /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A06C69F29EC397300CF0FAA /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9A70651A29AB83260049E29B /* Project object */;
 }
