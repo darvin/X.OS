@@ -13,9 +13,10 @@ import Combine
 
 /// A structure that contains the video data to render.
 struct CapturedFrame {
-    static let invalid = CapturedFrame(surface: nil, contentRect: .zero, contentScale: 0, scaleFactor: 0)
+    static let invalid = CapturedFrame(surface: nil, pixelBuffer: nil, contentRect: .zero, contentScale: 0, scaleFactor: 0)
     
     let surface: IOSurface?
+    let pixelBuffer: CVPixelBuffer?
     let contentRect: CGRect
     let contentScale: CGFloat
     let scaleFactor: CGFloat
@@ -28,7 +29,7 @@ class CaptureEngine: NSObject, @unchecked Sendable {
     private let logger = Logger()
     
     private var stream: SCStream?
-    private let videoSampleBufferQueue = DispatchQueue(label: "com.example.apple-samplecode.VideoSampleBufferQueue")
+    private let videoSampleBufferQueue = DispatchQueue(label: "com.stc.VideoSampleBufferQueue")
     
     // Store the the startCapture continuation, so that you can cancel it when you call stopCapture().
     private var continuation: AsyncThrowingStream<CapturedFrame, Error>.Continuation?
@@ -122,6 +123,8 @@ private class CaptureEngineStreamOutput: NSObject, SCStreamOutput, SCStreamDeleg
         // Get the pixel buffer that contains the image data.
         guard let pixelBuffer = sampleBuffer.imageBuffer else { return nil }
         
+        guard let cvPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)  else { return nil }
+        
         // Get the backing IOSurface.
         guard let surfaceRef = CVPixelBufferGetIOSurface(pixelBuffer)?.takeUnretainedValue() else { return nil }
         let surface = unsafeBitCast(surfaceRef, to: IOSurface.self)
@@ -134,6 +137,7 @@ private class CaptureEngineStreamOutput: NSObject, SCStreamOutput, SCStreamDeleg
         
         // Create a new frame with the relevant data.
         let frame = CapturedFrame(surface: surface,
+                                  pixelBuffer: cvPixelBuffer,
                                   contentRect: contentRect,
                                   contentScale: contentScale,
                                   scaleFactor: scaleFactor)

@@ -126,8 +126,8 @@
             filePath = "OSXLogger/Capture/CaptureEngine.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "stream(_:didOutputSampleBuffer:of:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "OSXLogger/Capture/CaptureEngine.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "stream(_:didOutputSampleBuffer:of:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,8 +158,8 @@
             filePath = "OSXLogger/Views/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -194,6 +194,385 @@
                   offsetFromSymbolStart = "40">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "646EF7FE-6723-4F7F-8B1A-B84D761484A3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OSXLogger/Vision/TextRecognizer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "process(cvPixelBuffer:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EAD76EA0-5CC2-4162-A348-543F038455DE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OSXLogger/Vision/TextRecognizer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "receive(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EAD76EA0-5CC2-4162-A348-543F038455DE - 97351e413c56ce7f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OSXLogger.TextRecognizer.receive(__C.CVBufferRef) -&gt; Combine.Subscribers.Demand"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Vision/TextRecognizer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "240">
+               </Location>
+               <Location
+                  uuid = "EAD76EA0-5CC2-4162-A348-543F038455DE - 97351e413c56ce1e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OSXLogger.TextRecognizer.receive(__C.CVBufferRef) -&gt; Combine.Subscribers.Demand"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Vision/TextRecognizer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "24F92577-5129-44EA-B290-1C9576DEE2D4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OSXLogger/Vision/ScreenAnalyzer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "screenRecorder"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4D66CD83-7615-4255-8376-4C39FE522CBB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OSXLogger/Vision/ScreenAnalyzer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "screenRecorder"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "4D66CD83-7615-4255-8376-4C39FE522CBB - 57f8feeaf3db3a96"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OSXLogger.ScreenAnalyzer.screenRecorder.setter : Swift.Optional&lt;OSXLogger.ScreenRecorder&gt;"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Vision/ScreenAnalyzer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "1484">
+               </Location>
+               <Location
+                  uuid = "4D66CD83-7615-4255-8376-4C39FE522CBB - 28f37c860d87cde0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;__C.VNObservation&gt;) -&gt; () in OSXLogger.ScreenAnalyzer.screenRecorder.setter : Swift.Optional&lt;OSXLogger.ScreenRecorder&gt;"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Vision/ScreenAnalyzer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "208">
+               </Location>
+               <Location
+                  uuid = "4D66CD83-7615-4255-8376-4C39FE522CBB - 28f37c860d87cde0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;__C.VNObservation&gt;) -&gt; () in OSXLogger.ScreenAnalyzer.screenRecorder.setter : Swift.Optional&lt;OSXLogger.ScreenRecorder&gt;"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Vision/ScreenAnalyzer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "4D66CD83-7615-4255-8376-4C39FE522CBB - 9c7c9e7f9e4614ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.VNObservation) -&gt; Swift.Bool in closure #2 (Swift.Array&lt;__C.VNObservation&gt;) -&gt; () in OSXLogger.ScreenAnalyzer.screenRecorder.setter : Swift.Optional&lt;OSXLogger.ScreenRecorder&gt;"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Vision/ScreenAnalyzer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "4D66CD83-7615-4255-8376-4C39FE522CBB - 28f37c860d87cdae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;__C.VNObservation&gt;) -&gt; () in OSXLogger.ScreenAnalyzer.screenRecorder.setter : Swift.Optional&lt;OSXLogger.ScreenRecorder&gt;"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Vision/ScreenAnalyzer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "4D66CD83-7615-4255-8376-4C39FE522CBB - 9c7c9e7f9e4614b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.VNObservation) -&gt; Swift.Bool in closure #2 (Swift.Array&lt;__C.VNObservation&gt;) -&gt; () in OSXLogger.ScreenAnalyzer.screenRecorder.setter : Swift.Optional&lt;OSXLogger.ScreenRecorder&gt;"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Vision/ScreenAnalyzer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C7362C95-8FE9-4EDB-8C45-FA58B5DF66F1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OSXLogger/Vision/ScreenAnalyzer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "screenRecorder"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "C7362C95-8FE9-4EDB-8C45-FA58B5DF66F1 - 57f8feeaf3db3b12"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OSXLogger.ScreenAnalyzer.screenRecorder.setter : Swift.Optional&lt;OSXLogger.ScreenRecorder&gt;"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Vision/ScreenAnalyzer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "1148">
+               </Location>
+               <Location
+                  uuid = "C7362C95-8FE9-4EDB-8C45-FA58B5DF66F1 - 34b194ae58c4d135"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;__C.VNObservation&gt;, Swift.Array&lt;__C.VNObservation&gt;) -&gt; Swift.Bool in OSXLogger.ScreenAnalyzer.screenRecorder.setter : Swift.Optional&lt;OSXLogger.ScreenRecorder&gt;"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Vision/ScreenAnalyzer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "328">
+               </Location>
+               <Location
+                  uuid = "C7362C95-8FE9-4EDB-8C45-FA58B5DF66F1 - 34b194ae58c4d1f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;__C.VNObservation&gt;, Swift.Array&lt;__C.VNObservation&gt;) -&gt; Swift.Bool in OSXLogger.ScreenAnalyzer.screenRecorder.setter : Swift.Optional&lt;OSXLogger.ScreenRecorder&gt;"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Vision/ScreenAnalyzer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "328">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6817CDDD-2480-4D58-A216-B09C9F33DC28"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OSXLogger/Capture/ScreenRecorder.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "start()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6E37CE39-B9A4-409D-B2FE-061187D83D60"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OSXLogger/Vision/TextRecognizer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "receive(subscription:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6E37CE39-B9A4-409D-B2FE-061187D83D60 - 97351e413c56ce9a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OSXLogger.TextRecognizer.receive(__C.CVBufferRef) -&gt; Combine.Subscribers.Demand"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Vision/TextRecognizer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "6E37CE39-B9A4-409D-B2FE-061187D83D60 - f10d8090b2c53330"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OSXLogger.TextRecognizer.receive(subscription: Combine.Subscription) -&gt; ()"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Vision/TextRecognizer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "72C505C1-DFFF-4FCB-AD88-58CB4A0EEF57"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OSXLogger/Vision/TextRecognizer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "receive(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "72C505C1-DFFF-4FCB-AD88-58CB4A0EEF57 - ffec84b63ba982da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OSXLogger.TextRecognizer.receive(completion: Combine.Subscribers.Completion&lt;Swift.Never&gt;) -&gt; ()"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Vision/TextRecognizer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "72C505C1-DFFF-4FCB-AD88-58CB4A0EEF57 - ffec84b63ba9821c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OSXLogger.TextRecognizer.receive(completion: Combine.Subscribers.Completion&lt;Swift.Never&gt;) -&gt; ()"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Vision/TextRecognizer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9B6BE215-B3D2-468A-9408-2245E78DB086"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OSXLogger/Views/VisionOverlay/VisionOverlayView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

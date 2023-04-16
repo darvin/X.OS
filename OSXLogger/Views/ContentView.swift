@@ -22,7 +22,8 @@ struct ContentView: View {
     @State var isOverlayVisible = false
 
     @StateObject var screenRecorder = ScreenRecorder()
-    
+    @StateObject var screenAnalyzer = ScreenAnalyzer()
+
     var body: some View {
         let previewScale = 0.2
         ZStack (alignment: .bottomTrailing) {
@@ -46,7 +47,11 @@ struct ContentView: View {
                
             DisplayListLayoutView(screenRecorder: screenRecorder)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .opacity(isOverlayVisible ? 0.9 : 0.0)
+                .opacity(isOverlayVisible ? 0.1 : 0.0)
+            
+            VisionOverlayView(screenAnalyzer: screenAnalyzer)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .opacity(isOverlayVisible ? 1.0 : 0.0)
 
         }
         .overlay {
@@ -69,6 +74,7 @@ struct ContentView: View {
         }
         .navigationTitle("Screen Capture Sample")
         .onAppear {
+            screenAnalyzer.screenRecorder = screenRecorder
             Task {
                 if await screenRecorder.canRecord {
                     await screenRecorder.start()
