@@ -70,3 +70,5 @@ OSXLogger is a macOS application developed with SwiftUI. It utilizes the ScreenC
 - macOS 11.0 or later.
 - Xcode 12.0 or later.
 
+
+
