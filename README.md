@@ -25,6 +25,13 @@ With the workflow annotation feature, you can log your time and annotate your wo
 
 OSXLogger logs all text that appears on your screen, including windows and user actions. This data is stored in a vector database, enabling you to search and analyze your usage history with ease. With the help of machine learning algorithms, OSXLogger can identify patterns in your usage history and suggest the most efficient ways to perform tasks.
 
+
+
+## Implementation Details
+
+OSXLogger is a macOS application developed with SwiftUI. It utilizes the ScreenCaptureKit and Vision framework to scrape text from the screen of the Mac computer, logs all text into a vector database. The Language Model is used to generate interactive tutorials and chat responses for specific tasks. Time logging and workflow annotation are implemented to optimize your workflow and suggest more efficient ways of performing tasks.
+
+
 ## Use cases
 
 User wants to summarize text displayed on the screen. To do so, they press the OSXLogger hotkey and enter "summarize this". OSXLogger utilizes ChatGPT to summarize the text on the screen and saves the original text, summarization, and user's request into a database. It also copies the summarization to the clipboard and displays a notification indicating that the summarization has been copied to the clipboard.
@@ -60,15 +67,36 @@ User is creating a presentation in Keynote and wants to make sure that their tex
 
 
 
+User is writing a piece of code and wants to ensure that it adheres to best practices and standards. They activate the OSXLogger hotkey and enter the "code review" command. OSXLogger analyzes the code for adherence to best practices and standards, and suggests improvements or changes as needed. It can also provide links to relevant documentation or tutorials for further learning.
 
-## Implementation Details
 
-OSXLogger is a macOS application developed with SwiftUI. It utilizes the ScreenCaptureKit and Vision framework to scrape text from the screen of the Mac computer, logs all text into a vector database. The Language Model is used to generate interactive tutorials and chat responses for specific tasks. Time logging and workflow annotation are implemented to optimize your workflow and suggest more efficient ways of performing tasks.
+*
 
-## Requirements
 
-- macOS 11.0 or later.
-- Xcode 12.0 or later.
+User is working on a project that involves frequent communication with team members. They activate the OSXLogger hotkey and enter the "team communication" command. OSXLogger opens a chat window or communication platform and pre-populates it with the relevant team members and project information. It can also suggest meeting times based on everyone's schedules.
 
+User needs to schedule a meeting with colleagues who work in different time zones. They activate the OSXLogger hotkey and enter the "time zone converter" command. OSXLogger displays a time zone converter tool, where the user can input the meeting time and the time zones of the attendees to find a time that works for everyone.
+
+User is browsing a webpage and wants to save it for later reference. They activate the OSXLogger hotkey and enter the "save webpage" command. OSXLogger saves the webpage as a PDF or HTML file, and adds it to a designated folder for easy access later.
+
+User is a writer who frequently uses a thesaurus. They activate the OSXLogger hotkey and enter the "thesaurus" command. OSXLogger displays a thesaurus tool, where the user can input a word and find synonyms and antonyms.
+
+User is working on a spreadsheet and wants to quickly format the data. They activate the OSXLogger hotkey and enter the "format data" command. OSXLogger displays a menu of formatting options, such as currency, date, and percentage formats, and applies the selected format to the data.
+
+User is working on a design project and wants to find inspiration. They activate the OSXLogger hotkey and enter the "design inspiration" command. OSXLogger displays a selection of design inspiration websites, such as Dribbble or Behance, for the user to browse.
+
+User needs to send an email to multiple recipients. They activate the OSXLogger hotkey and enter the "send group email" command. OSXLogger opens a new email window and pre-populates it with the selected recipients, and can also suggest a subject line and email content based on previous email templates.
+
+User is working on a task that involves repetitive actions. They activate the OSXLogger hotkey and enter the "task automation" command. OSXLogger can automate the repetitive task using macros or scripting, freeing up the user's time for more valuable work.
+
+User needs to perform a calculation quickly. They activate the OSXLogger hotkey and enter the "calculator" command. OSXLogger displays a calculator tool for the user to perform the calculation.
+
+User is a language learner and needs to practice their vocabulary. They activate the OSXLogger hotkey and enter the "flashcards" command. OSXLogger displays a flashcard tool with the user's selected vocabulary, and can provide prompts for the user to practice writing or speaking the words.
+
+User is working on a document and wants to quickly find and replace certain words or phrases. They activate the OSXLogger hotkey and enter the "find and replace" command. OSXLogger displays a find and replace tool, where the user can input the word or phrase to be replaced and the replacement text.
+
+
+
+*
 
 
