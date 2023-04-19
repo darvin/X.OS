@@ -38,6 +38,14 @@ extension SIMD2 where Scalar == Float {
 
 
 
+
+extension Array where Element == NormalizedRect {
+    func toVertices() -> [[Vertex]] {
+        map { $0.toTriangles().map { $0.toVertex() } }
+    }
+    
+}
+
 extension Array where Element == VNRectangleObservation {
     fileprivate func toVerticesRects() -> [[VertexIn]] {
         let scale: Float = 2.0
@@ -239,3 +247,41 @@ extension NormalizedRect {
 }
 
 
+extension NormalizedRect {
+    static func random(minSize: Float = 0.2) -> NormalizedRect {
+        let sizeRange = (minSize...1.0)
+        let width = Float.random(in: sizeRange)
+        let height = Float.random(in: sizeRange)
+        let x = Float.random(in: (-1.0 + width)...1.0)
+        let y = Float.random(in: (-1.0 + height)...1.0)
+        
+        let topLeft = SIMD2<Float>(x, y)
+        let topRight = SIMD2<Float>(x + width, y)
+        let bottomRight = SIMD2<Float>(x + width, y + height)
+        let bottomLeft = SIMD2<Float>(x, y + height)
+        
+        return NormalizedRect(topLeft: topLeft, topRight: topRight, bottomRight: bottomRight, bottomLeft: bottomLeft)
+    }
+}
+
+
+extension NormalizedRect {
+    static func randomNonOverlappingRects(size: Int, minSize: Float = 0.2) -> [NormalizedRect] {
+        var rects = [NormalizedRect]()
+        
+        while rects.count < size {
+            let newRect = NormalizedRect.random(minSize: minSize)
+            if !rects.contains(where: { $0.overlaps(with: newRect) }) {
+                rects.append(newRect)
+            }
+        }
+        
+        return rects
+    }
+    
+    func overlaps(with other: NormalizedRect) -> Bool {
+        let xOverlap = (other.topLeft.x > bottomRight.x) || (topLeft.x > other.bottomRight.x)
+        let yOverlap = (other.topLeft.y > bottomRight.y) || (topLeft.y > other.bottomRight.y)
+        return !(xOverlap || yOverlap)
+    }
+}

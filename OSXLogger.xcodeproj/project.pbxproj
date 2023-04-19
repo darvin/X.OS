@@ -16,7 +16,7 @@
 		9A06C6B129EC4BD400CF0FAA /* VisionOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6B029EC4BD400CF0FAA /* VisionOverlayView.swift */; };
 		9A06C6B329EC4C3000CF0FAA /* VisionMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6B229EC4C3000CF0FAA /* VisionMarkerView.swift */; };
 		9A06C6F229F00DE700CF0FAA /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6F129F00DE700CF0FAA /* MetalView.swift */; };
-		9A06C6F829F020F400CF0FAA /* Array_VNRectangleObservation+Vertices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6F729F020F400CF0FAA /* Array_VNRectangleObservation+Vertices.swift */; };
+		9A06C6F829F020F400CF0FAA /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6F729F020F400CF0FAA /* Geometry.swift */; };
 		9A06C6FD29F0541C00CF0FAA /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6FC29F0541C00CF0FAA /* Renderer.swift */; };
 		9A06C70329F0551300CF0FAA /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C70129F0551300CF0FAA /* Shaders.metal */; };
 		9A70652629AB83260049E29B /* OSXLoggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70652529AB83260049E29B /* OSXLoggerApp.swift */; };
@@ -62,7 +62,7 @@
 		9A06C6B029EC4BD400CF0FAA /* VisionOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionOverlayView.swift; sourceTree = "<group>"; };
 		9A06C6B229EC4C3000CF0FAA /* VisionMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionMarkerView.swift; sourceTree = "<group>"; };
 		9A06C6F129F00DE700CF0FAA /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
-		9A06C6F729F020F400CF0FAA /* Array_VNRectangleObservation+Vertices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array_VNRectangleObservation+Vertices.swift"; sourceTree = "<group>"; };
+		9A06C6F729F020F400CF0FAA /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		9A06C6FC29F0541C00CF0FAA /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		9A06C6FE29F0544500CF0FAA /* OSXLogger-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OSXLogger-Bridging-Header.h"; sourceTree = "<group>"; };
 		9A06C70129F0551300CF0FAA /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
@@ -158,8 +158,8 @@
 				9A06C70229F0551300CF0FAA /* ShaderDefinitions.h */,
 				9A06C70129F0551300CF0FAA /* Shaders.metal */,
 				9A06C6F129F00DE700CF0FAA /* MetalView.swift */,
-				9A06C6F729F020F400CF0FAA /* Array_VNRectangleObservation+Vertices.swift */,
 				9A06C6FC29F0541C00CF0FAA /* Renderer.swift */,
+				9A06C6F729F020F400CF0FAA /* Geometry.swift */,
 				9A06C6FE29F0544500CF0FAA /* OSXLogger-Bridging-Header.h */,
 			);
 			path = VisionMetalOverlay;
@@ -404,7 +404,7 @@
 				9A70655729AB848E0049E29B /* MaterialView.swift in Sources */,
 				9A06C6A729EC3A0600CF0FAA /* SettingsView.swift in Sources */,
 				9A70655629AB848E0049E29B /* CapturePreview.swift in Sources */,
-				9A06C6F829F020F400CF0FAA /* Array_VNRectangleObservation+Vertices.swift in Sources */,
+				9A06C6F829F020F400CF0FAA /* Geometry.swift in Sources */,
 				9A70655229AB84540049E29B /* ScreenRecorder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

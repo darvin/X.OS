@@ -14,12 +14,15 @@ import Vision
 
 class Renderer : NSObject, MTKViewDelegate {
     
-    var verticesSegments = [[Vertex]]()
+    var cornerMarkerVertices = [[Vertex]]()
+    
+    var emptySpaceVertices = NormalizedRect.randomNonOverlappingRects(size: 3).toVertices()
     
     var device: MTLDevice!
     var commandQueue: MTLCommandQueue!
     var cornerMarkersPipelineState: MTLRenderPipelineState!
-    
+    var prettyEmptySpacePipelineState:MTLRenderPipelineState!
+
     var fragmentUniformsBuffer: MTLBuffer!
     
     // This keeps track of the system time of the last render
@@ -41,13 +44,14 @@ class Renderer : NSObject, MTKViewDelegate {
         // Create the Render Pipeline
         do {
             cornerMarkersPipelineState = try Renderer.buildCornerMarkersPipeline(device: device, metalKitView: mtkView)
+            prettyEmptySpacePipelineState = try Renderer.buildPrettyEmptySpacePipeline(device: device, metalKitView: mtkView)
         } catch {
             print("Unable to compile render pipeline state: \(error)")
             return
         }
         
         // Create our uniform buffer, and fill it with an initial brightness of 1.0
-        var initialFragmentUniforms = FragmentUniforms(brightness: 1.0)
+        var initialFragmentUniforms = FragmentUniforms(brightness: 1.0, time: 0.0)
         fragmentUniformsBuffer = device.makeBuffer(bytes: &initialFragmentUniforms, length: MemoryLayout<FragmentUniforms>.stride, options: [])!
     }
     
@@ -55,18 +59,50 @@ class Renderer : NSObject, MTKViewDelegate {
         let pipelineDescriptor = MTLRenderPipelineDescriptor()
         let library = device.makeDefaultLibrary()
         pipelineDescriptor.vertexFunction = library?.makeFunction(name: "vertexShader")
-        pipelineDescriptor.fragmentFunction = library?.makeFunction(name: "fragmentShader")
+        pipelineDescriptor.fragmentFunction = library?.makeFunction(name: "fragmentBrightnessShader")
         pipelineDescriptor.colorAttachments[0].pixelFormat = metalKitView.colorPixelFormat
         return try device.makeRenderPipelineState(descriptor: pipelineDescriptor)
     }
     
+    
+    
+    
+    class func buildPrettyEmptySpacePipeline(device: MTLDevice, metalKitView: MTKView) throws -> MTLRenderPipelineState {
+        let pipelineDescriptor = MTLRenderPipelineDescriptor()
+        let library = device.makeDefaultLibrary()
+        pipelineDescriptor.vertexFunction = library?.makeFunction(name: "vertexShader")
+        pipelineDescriptor.fragmentFunction = library?.makeFunction(name: "fragmentPrettyShader")
+        pipelineDescriptor.colorAttachments[0].pixelFormat = metalKitView.colorPixelFormat
+        return try device.makeRenderPipelineState(descriptor: pipelineDescriptor)
+    }
+    
+    
     func update(dt: CFTimeInterval) {
         let ptr = fragmentUniformsBuffer.contents().bindMemory(to: FragmentUniforms.self, capacity: 1)
         ptr.pointee.brightness = Float(0.5 * cos(currentTime) + 0.5)
-        
+        ptr.pointee.time = Float(currentTime)
         currentTime += dt
     }
     
+    
+    fileprivate func renderVertices(with renderEncoder: MTLRenderCommandEncoder, vertices: [[Vertex]]) {
+        let flatVertices = vertices.flatMap { $0 }
+        if flatVertices.count > 0 {
+            let vertexBuffer = device.makeBuffer(bytes: flatVertices, length: MemoryLayout<Vertex>.stride * flatVertices.count, options: [])
+            renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+        }
+        
+        renderEncoder.setFragmentBuffer(fragmentUniformsBuffer, offset: 0, index: 0)
+        
+        
+        // Draw the vertices
+        if vertices.count > 0 {
+            for i in 0..<vertices.count {
+                let verticesInSegment = vertices[i]
+                renderEncoder.drawPrimitives(type: .triangleStrip, vertexStart: i*verticesInSegment.count, vertexCount: verticesInSegment.count)
+            }
+        }
+    }
     
     func draw(in view: MTKView) {
         
@@ -88,22 +124,12 @@ class Renderer : NSObject, MTKViewDelegate {
         
         renderEncoder.setRenderPipelineState(cornerMarkersPipelineState)
         
-       let flatVertices = verticesSegments.flatMap { $0 }
-       if flatVertices.count > 0 {
-           let vertexBuffer = device.makeBuffer(bytes: flatVertices, length: MemoryLayout<Vertex>.stride * flatVertices.count, options: [])
-           renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-       }
+        renderVertices(with: renderEncoder, vertices: cornerMarkerVertices)
+        
+        renderEncoder.setRenderPipelineState(prettyEmptySpacePipelineState)
 
-        renderEncoder.setFragmentBuffer(fragmentUniformsBuffer, offset: 0, index: 0)
-        
-        
-        // Draw the vertices
-        if verticesSegments.count > 0 {
-            for i in 0..<verticesSegments.count {
-                let verticesInSegment = verticesSegments[i]
-                renderEncoder.drawPrimitives(type: .triangleStrip, vertexStart: i*verticesInSegment.count, vertexCount: verticesInSegment.count)
-            }
-        }
+        renderVertices(with: renderEncoder, vertices: emptySpaceVertices)
+
         
         renderEncoder.endEncoding()
         commandBuffer.present(view.currentDrawable!)
@@ -123,7 +149,7 @@ class Renderer : NSObject, MTKViewDelegate {
     
     
     func update(textObservations:[VNRecognizedTextObservation]) {
-            verticesSegments = (textObservations as [VNRectangleObservation]).toCornerMarkers()
+            cornerMarkerVertices = (textObservations as [VNRectangleObservation]).toCornerMarkers()
     }
 }
 //

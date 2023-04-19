@@ -11,6 +11,7 @@ struct Vertex {
 
 struct FragmentUniforms {
     float brightness;
+    float time;
 };
 
 #endif /* ShaderDefinitions_h */
