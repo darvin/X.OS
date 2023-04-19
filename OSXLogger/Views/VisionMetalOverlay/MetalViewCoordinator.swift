@@ -23,7 +23,7 @@ class Coordinator : NSObject, MTKViewDelegate {
 
     
     func update(textObservations:[VNRecognizedTextObservation]) {
-        verticesSegments = (textObservations as [VNRectangleObservation]).toVerticesRects()
+        verticesSegments = (textObservations as [VNRectangleObservation]).toCornerMarkers()
     }
     
     init(_ parent: MetalView) {
