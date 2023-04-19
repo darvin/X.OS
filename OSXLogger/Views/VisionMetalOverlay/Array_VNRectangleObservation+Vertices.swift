@@ -59,7 +59,9 @@ extension Array where Element == VNRectangleObservation {
 extension Array where Element == VNRectangleObservation {
     func toCornerMarkers() -> [[VertexIn]] {
         return self.toNormalizedRects().flatMap { normalizedRect in
-            return normalizedRect.toCornerMarkers().map { cornerMarkers in
+            let vInset = -normalizedRect.smallerSideLength * 0.2
+            let hInset = -normalizedRect.smallerSideLength * 0.03
+            return normalizedRect.withEdgeInsets(vertical: vInset, horizontal: hInset).toCornerMarkers().map { cornerMarkers in
                 return cornerMarkers.toTriangles()
             }
         }
@@ -76,6 +78,22 @@ struct NormalizedRect {
     var bottomRight: SIMD2<Float>
     var bottomLeft: SIMD2<Float>
 }
+
+extension NormalizedRect {
+    func withEdgeInsets(vertical: Float, horizontal: Float) -> NormalizedRect {
+        let xPadding = horizontal * 2
+        let yPadding = vertical * 2
+        
+        return NormalizedRect(
+            topLeft: SIMD2<Float>(topLeft.x - horizontal, topLeft.y + vertical),
+            topRight: SIMD2<Float>(topRight.x + horizontal, topRight.y + vertical),
+            bottomRight: SIMD2<Float>(bottomRight.x + horizontal, bottomRight.y - vertical),
+            bottomLeft: SIMD2<Float>(bottomLeft.x - horizontal, bottomLeft.y - vertical)
+        )
+    }
+}
+
+
 extension NormalizedRect {
     var width: Float {
         return topRight.x - topLeft.x
@@ -137,66 +155,70 @@ extension NormalizedRect {
 
 extension NormalizedRect {
     func toCornerMarkers() -> [NormalizedRect] {
-        let cornerSize: Float = smallerSideLength * 0.4
-        let cornerStroke: Float = smallerSideLength * 0.1
-        
-        let topLeftHorizonal = NormalizedRect(
-            topLeft: SIMD2<Float>(topLeft.x, topLeft.y),
-            topRight: SIMD2<Float>(topLeft.x + cornerSize, topLeft.y),
-            bottomRight: SIMD2<Float>(topLeft.x + cornerSize, topLeft.y - cornerStroke),
-            bottomLeft: SIMD2<Float>(topLeft.x, topLeft.y - cornerStroke)
+        let cornerSizeV: Float = smallerSideLength * 0.2
+        let cornerStrokeV: Float = smallerSideLength * 0.039
+        let hRatio: Float = 0.3
+        let cornerSizeH = cornerSizeV  * hRatio
+        let cornerStrokeH = cornerStrokeV  * hRatio
+
+        let topLeftHorizontal = NormalizedRect(
+            topLeft: SIMD2<Float>(topLeft.x - cornerSizeH, topLeft.y),
+            topRight: SIMD2<Float>(topLeft.x, topLeft.y),
+            bottomRight: SIMD2<Float>(topLeft.x, topLeft.y + cornerStrokeV),
+            bottomLeft: SIMD2<Float>(topLeft.x - cornerSizeH, topLeft.y + cornerStrokeV)
         )
         
         let topLeftVertical = NormalizedRect(
-            topLeft: SIMD2<Float>(topLeft.x, topLeft.y),
-            topRight: SIMD2<Float>(topLeft.x + cornerStroke, topLeft.y),
-            bottomRight: SIMD2<Float>(topLeft.x + cornerStroke, topLeft.y - cornerSize),
-            bottomLeft: SIMD2<Float>(topLeft.x, topLeft.y - cornerSize)
+            topLeft: SIMD2<Float>(topLeft.x, topLeft.y + cornerSizeV),
+            topRight: SIMD2<Float>(topLeft.x + cornerStrokeH, topLeft.y + cornerSizeV),
+            bottomRight: SIMD2<Float>(topLeft.x + cornerStrokeH, topLeft.y),
+            bottomLeft: SIMD2<Float>(topLeft.x, topLeft.y)
         )
         
         let topRightHorizontal = NormalizedRect(
-            topLeft: SIMD2<Float>(topRight.x - cornerSize, topRight.y),
-            topRight: SIMD2<Float>(topRight.x, topRight.y),
-            bottomRight: SIMD2<Float>(topRight.x, topRight.y - cornerStroke),
-            bottomLeft: SIMD2<Float>(topRight.x - cornerSize, topRight.y - cornerStroke)
+            topLeft: SIMD2<Float>(topRight.x, topRight.y),
+            topRight: SIMD2<Float>(topRight.x + cornerSizeH, topRight.y),
+            bottomRight: SIMD2<Float>(topRight.x + cornerSizeH, topRight.y + cornerStrokeV),
+            bottomLeft: SIMD2<Float>(topRight.x, topRight.y + cornerStrokeV)
         )
         
         let topRightVertical = NormalizedRect(
-            topLeft: SIMD2<Float>(topRight.x - cornerStroke, topRight.y),
-            topRight: SIMD2<Float>(topRight.x, topRight.y),
-            bottomRight: SIMD2<Float>(topRight.x, topRight.y - cornerSize),
-            bottomLeft: SIMD2<Float>(topRight.x - cornerStroke, topRight.y - cornerSize)
+            topLeft: SIMD2<Float>(topRight.x - cornerStrokeH, topRight.y + cornerSizeV),
+            topRight: SIMD2<Float>(topRight.x, topRight.y + cornerSizeV),
+            bottomRight: SIMD2<Float>(topRight.x, topRight.y),
+            bottomLeft: SIMD2<Float>(topRight.x - cornerStrokeH, topRight.y)
         )
         
         let bottomRightHorizontal = NormalizedRect(
-            topLeft: SIMD2<Float>(bottomRight.x - cornerSize, bottomRight.y + cornerStroke),
-            topRight: SIMD2<Float>(bottomRight.x, bottomRight.y + cornerStroke),
-            bottomRight: SIMD2<Float>(bottomRight.x, bottomRight.y),
-            bottomLeft: SIMD2<Float>(bottomRight.x - cornerSize, bottomRight.y)
+            topLeft: SIMD2<Float>(bottomRight.x, bottomRight.y - cornerStrokeV),
+            topRight: SIMD2<Float>(bottomRight.x + cornerSizeH, bottomRight.y - cornerStrokeV),
+            bottomRight: SIMD2<Float>(bottomRight.x + cornerSizeH, bottomRight.y),
+            bottomLeft: SIMD2<Float>(bottomRight.x, bottomRight.y)
         )
         
         let bottomRightVertical = NormalizedRect(
-            topLeft: SIMD2<Float>(bottomRight.x - cornerStroke, bottomRight.y + cornerSize),
-            topRight: SIMD2<Float>(bottomRight.x, bottomRight.y + cornerSize),
-            bottomRight: SIMD2<Float>(bottomRight.x, bottomRight.y),
-            bottomLeft: SIMD2<Float>(bottomRight.x - cornerStroke, bottomRight.y)
+            topLeft: SIMD2<Float>(bottomRight.x - cornerStrokeH, bottomRight.y),
+            topRight: SIMD2<Float>(bottomRight.x, bottomRight.y),
+            bottomRight: SIMD2<Float>(bottomRight.x, bottomRight.y - cornerSizeV),
+            bottomLeft: SIMD2<Float>(bottomRight.x - cornerStrokeH, bottomRight.y - cornerSizeV)
         )
         
         let bottomLeftHorizontal = NormalizedRect(
-            topLeft: SIMD2<Float>(bottomLeft.x, bottomLeft.y + cornerStroke),
-            topRight: SIMD2<Float>(bottomLeft.x + cornerSize, bottomLeft.y + cornerStroke),
-            bottomRight: SIMD2<Float>(bottomLeft.x + cornerSize, bottomLeft.y),
-            bottomLeft: SIMD2<Float>(bottomLeft.x, bottomLeft.y)
+            topLeft: SIMD2<Float>(bottomLeft.x - cornerSizeH, bottomLeft.y - cornerStrokeV),
+            topRight: SIMD2<Float>(bottomLeft.x, bottomLeft.y - cornerStrokeV),
+            bottomRight: SIMD2<Float>(bottomLeft.x, bottomLeft.y),
+            bottomLeft: SIMD2<Float>(bottomLeft.x - cornerSizeH, bottomLeft.y)
         )
         
         let bottomLeftVertical = NormalizedRect(
-            topLeft: SIMD2<Float>(bottomLeft.x, bottomLeft.y + cornerSize),
-            topRight: SIMD2<Float>(bottomLeft.x + cornerStroke, bottomLeft.y + cornerSize),
-            bottomRight: SIMD2<Float>(bottomLeft.x + cornerStroke, bottomLeft.y),
-            bottomLeft: SIMD2<Float>(bottomLeft.x, bottomLeft.y)
+            topLeft: SIMD2<Float>(bottomLeft.x, bottomLeft.y),
+            topRight: SIMD2<Float>(bottomLeft.x + cornerStrokeH, bottomLeft.y),
+            bottomRight: SIMD2<Float>(bottomLeft.x + cornerStrokeH, bottomLeft.y - cornerSizeV),
+            bottomLeft: SIMD2<Float>(bottomLeft.x, bottomLeft.y - cornerSizeV)
         )
+
         
-        return [topLeftHorizonal, topLeftVertical, topRightHorizontal, topRightVertical, bottomRightHorizontal, bottomRightVertical, bottomLeftHorizontal, bottomLeftVertical]
+        return [topLeftHorizontal, topLeftVertical, topRightHorizontal, topRightVertical, bottomRightHorizontal, bottomRightVertical, bottomLeftHorizontal, bottomLeftVertical]
     }
 }
 
