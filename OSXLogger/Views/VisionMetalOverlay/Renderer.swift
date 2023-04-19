@@ -18,7 +18,7 @@ class Renderer : NSObject, MTKViewDelegate {
     
     var device: MTLDevice!
     var commandQueue: MTLCommandQueue!
-    var pipelineState: MTLRenderPipelineState!
+    var cornerMarkersPipelineState: MTLRenderPipelineState!
     
     var fragmentUniformsBuffer: MTLBuffer!
     
@@ -40,7 +40,7 @@ class Renderer : NSObject, MTKViewDelegate {
         
         // Create the Render Pipeline
         do {
-            pipelineState = try Renderer.buildRenderPipelineWith(device: device, metalKitView: mtkView)
+            cornerMarkersPipelineState = try Renderer.buildCornerMarkersPipeline(device: device, metalKitView: mtkView)
         } catch {
             print("Unable to compile render pipeline state: \(error)")
             return
@@ -51,20 +51,12 @@ class Renderer : NSObject, MTKViewDelegate {
         fragmentUniformsBuffer = device.makeBuffer(bytes: &initialFragmentUniforms, length: MemoryLayout<FragmentUniforms>.stride, options: [])!
     }
     
-    // Create our custom rendering pipeline, which loads shaders using `device`, and outputs to the format of `metalKitView`
-    class func buildRenderPipelineWith(device: MTLDevice, metalKitView: MTKView) throws -> MTLRenderPipelineState {
-        // Create a new pipeline descriptor
+    class func buildCornerMarkersPipeline(device: MTLDevice, metalKitView: MTKView) throws -> MTLRenderPipelineState {
         let pipelineDescriptor = MTLRenderPipelineDescriptor()
-        
-        // Setup the shaders in the pipeline
         let library = device.makeDefaultLibrary()
         pipelineDescriptor.vertexFunction = library?.makeFunction(name: "vertexShader")
         pipelineDescriptor.fragmentFunction = library?.makeFunction(name: "fragmentShader")
-        
-        // Setup the output pixel format to match the pixel format of the metal kit view
         pipelineDescriptor.colorAttachments[0].pixelFormat = metalKitView.colorPixelFormat
-        
-        // Compile the configured pipeline descriptor to a pipeline state object
         return try device.makeRenderPipelineState(descriptor: pipelineDescriptor)
     }
     
@@ -94,7 +86,7 @@ class Renderer : NSObject, MTKViewDelegate {
         
         guard let renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor) else { return }
         
-        renderEncoder.setRenderPipelineState(pipelineState)
+        renderEncoder.setRenderPipelineState(cornerMarkersPipelineState)
         
        let flatVertices = verticesSegments.flatMap { $0 }
        if flatVertices.count > 0 {
