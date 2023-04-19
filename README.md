@@ -1,4 +1,4 @@
-# OSXLogger
+# X.OS
 
 Automate your Mac usage and increase productivity with **OSXLogger**. This macOS application uses advanced technology to help you streamline your workflow and save time. 
 
