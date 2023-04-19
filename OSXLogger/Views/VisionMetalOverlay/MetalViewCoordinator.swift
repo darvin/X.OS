@@ -18,12 +18,12 @@ class Coordinator : NSObject, MTKViewDelegate {
     var device: MTLDevice!
     var metalCommandQueue: MTLCommandQueue!
     
-    var vertices = [VertexIn]()
+    var verticesSegments = [[VertexIn]]()
     
 
     
     func update(textObservations:[VNRecognizedTextObservation]) {
-        vertices = (textObservations as [VNRectangleObservation]).toVerticesArray()
+        verticesSegments = (textObservations as [VNRectangleObservation]).toVerticesRects()
     }
     
     init(_ parent: MetalView) {
@@ -54,8 +54,10 @@ class Coordinator : NSObject, MTKViewDelegate {
         
         let renderCommandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor)!
         
-        if vertices.count > 0 {
-            let vertexBuffer = device.makeBuffer(bytes: vertices, length: MemoryLayout<VertexIn>.stride * vertices.count, options: [])
+        let flatVertices = verticesSegments.flatMap { $0 }
+        
+        if flatVertices.count > 0 {
+            let vertexBuffer = device.makeBuffer(bytes: flatVertices, length: MemoryLayout<VertexIn>.stride * flatVertices.count, options: [])
 
             renderCommandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
 
@@ -75,9 +77,11 @@ class Coordinator : NSObject, MTKViewDelegate {
         // Set the render pipeline state on the render command encoder
         renderCommandEncoder.setRenderPipelineState(renderPipelineState)
 
-        if vertices.count > 0 {
-            for i in 0...vertices.count/6 {
-                renderCommandEncoder.drawPrimitives(type: .triangleStrip, vertexStart: i*6, vertexCount: 6)
+        
+        if verticesSegments.count > 0 {
+            for i in 0..<verticesSegments.count {
+                let verticesInSegment = verticesSegments[i]
+                renderCommandEncoder.drawPrimitives(type: .triangleStrip, vertexStart: i*verticesInSegment.count, vertexCount: verticesInSegment.count)
             }
         }
 
