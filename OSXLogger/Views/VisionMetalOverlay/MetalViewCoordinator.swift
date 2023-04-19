@@ -10,7 +10,6 @@ import SwiftUI
 import MetalKit
 import Vision
 
-import simd
 
 
 
@@ -21,32 +20,10 @@ class Coordinator : NSObject, MTKViewDelegate {
     
     var vertices = [VertexIn]()
     
-    struct VertexIn {
-        var position: SIMD2<Float>
-    }
-
-    func toVertices(from rectangleObservations: [VNRectangleObservation]) -> [VertexIn] {
-        return rectangleObservations.flatMap { observation in
-//            guard observation.confidence > 0.5 else { return [VertexIn]() }
-            let bottomLeft = observation.bottomLeft
-            let bottomRight = observation.bottomRight
-            let topLeft = observation.topLeft
-            let topRight = observation.topRight
-            
-            return [
-                VertexIn(position: SIMD2<Float>(Float(bottomLeft.x), Float(bottomLeft.y))),
-                VertexIn(position: SIMD2<Float>(Float(bottomRight.x), Float(bottomRight.y))),
-                VertexIn(position: SIMD2<Float>(Float(topLeft.x), Float(topLeft.y))),
-                VertexIn(position: SIMD2<Float>(Float(topRight.x), Float(topRight.y))),
-                VertexIn(position: SIMD2<Float>(Float(bottomLeft.x), Float(bottomLeft.y))),
-                VertexIn(position: SIMD2<Float>(Float(topLeft.x), Float(topLeft.y))),
-            ]
-        }
-    }
 
     
     func update(textObservations:[VNRecognizedTextObservation]) {
-        vertices = toVertices(from: textObservations)
+        vertices = (textObservations as [VNRectangleObservation]).toVertices()
     }
     
     init(_ parent: MetalView) {

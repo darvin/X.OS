@@ -713,8 +713,8 @@
             filePath = "OSXLogger/Views/VisionMetalOverlay/MetalViewCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "update(textObservations:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -729,8 +729,8 @@
             filePath = "OSXLogger/Views/VisionMetalOverlay/MetalViewCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "draw(in:)"
             landmarkType = "7">
          </BreakpointContent>
