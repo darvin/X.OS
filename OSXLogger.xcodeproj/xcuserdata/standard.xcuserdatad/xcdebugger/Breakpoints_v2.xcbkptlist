@@ -158,8 +158,8 @@
             filePath = "OSXLogger/Views/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -587,8 +587,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
             endingLineNumber = "117"
-            landmarkName = "screenRecorder"
-            landmarkType = "24">
+            landmarkName = "isAlmostEqual(to:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "18586260-969E-480C-ABD8-5023097FD8D6 - a091c6c3ec39864c"
@@ -637,6 +637,102 @@
             endingLineNumber = "23"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F407ECE-0F2A-4B89-BA94-80ABFA03E1C8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OSXLogger/Views/VisionMetalOverlay/MetalView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "makeNSView(context:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7F407ECE-0F2A-4B89-BA94-80ABFA03E1C8 - 316f980078395cc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OSXLogger.MetalView.makeNSView(context: SwiftUI.NSViewRepresentableContext&lt;OSXLogger.MetalView&gt;) -&gt; __C.MTKView"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Views/VisionMetalOverlay/MetalView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "616">
+               </Location>
+               <Location
+                  uuid = "7F407ECE-0F2A-4B89-BA94-80ABFA03E1C8 - 316f9800783952d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OSXLogger.MetalView.makeNSView(context: SwiftUI.NSViewRepresentableContext&lt;OSXLogger.MetalView&gt;) -&gt; __C.MTKView"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Views/VisionMetalOverlay/MetalView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "764">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CCB03206-F7DE-4B0D-95E4-9CE90ED51010"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OSXLogger/Views/VisionMetalOverlay/MetalView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "updateNSView(_:context:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8B2AD3CE-6DB4-4817-AE91-C71E9FD76D22"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OSXLogger/Views/VisionMetalOverlay/MetalViewCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "update(textObservations:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AF53CC2E-3D65-4556-B62F-611998FD11A9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OSXLogger/Views/VisionMetalOverlay/MetalViewCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "draw(in:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -49,9 +49,14 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .opacity(isOverlayVisible ? 0.1 : 0.0)
             
-            VisionOverlayView(screenAnalyzer: screenAnalyzer)
+//            VisionOverlayView(screenAnalyzer: screenAnalyzer)
+//                .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                .opacity(isOverlayVisible ? 1.0 : 0.0)
+//
+            MetalView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .opacity(isOverlayVisible ? 1.0 : 0.0)
+                .opacity(isOverlayVisible ? 0.7 : 0.0)
+                .environmentObject(screenAnalyzer)
 
         }
         .overlay {
