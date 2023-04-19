@@ -7,6 +7,15 @@
 
 import Foundation
 import Vision
+
+import simd
+
+fileprivate struct VertexIn {
+    var position: SIMD2<Float>
+}
+
+
+
 extension CGPoint {
     func toSIMD2(scale: Float, translate: Float) -> SIMD2<Float> {
         let x = Float(self.x) * scale + translate
@@ -30,7 +39,7 @@ extension SIMD2 where Scalar == Float {
 
 
 extension Array where Element == VNRectangleObservation {
-    func toVerticesRects() -> [[VertexIn]] {
+    fileprivate func toVerticesRects() -> [[VertexIn]] {
         let scale: Float = 2.0
         let translate: Float = -1.0
 
@@ -57,19 +66,26 @@ extension Array where Element == VNRectangleObservation {
 
 
 extension Array where Element == VNRectangleObservation {
-    func toCornerMarkers() -> [[VertexIn]] {
+    func toCornerMarkers() -> [[Vertex]] {
         return self.toNormalizedRects().flatMap { normalizedRect in
             let vInset = -normalizedRect.smallerSideLength * 0.2
             let hInset = -normalizedRect.smallerSideLength * 0.03
             return normalizedRect.withEdgeInsets(vertical: vInset, horizontal: hInset).toCornerMarkers().map { cornerMarkers in
-                return cornerMarkers.toTriangles()
+                return cornerMarkers.toTriangles().map { vertexIn in
+                    vertexIn.toVertex()
+                }
             }
         }
     }
 }
 
 
-
+extension VertexIn {
+    func toVertex() -> Vertex {
+        let randomColor = vector_float4(Float.random(in: 0...1), Float.random(in: 0.5...1), Float.random(in: 0.5...1), 1.0)
+        return Vertex(color: randomColor, pos: position)
+    }
+}
 
 
 struct NormalizedRect {
@@ -138,7 +154,7 @@ extension Array where Element == VNRectangleObservation {
 
 
 extension NormalizedRect {
-    func toTriangles() -> [VertexIn] {
+    fileprivate func toTriangles() -> [VertexIn] {
         let triangle1 = [
             VertexIn(position: bottomLeft),
             VertexIn(position: topLeft),

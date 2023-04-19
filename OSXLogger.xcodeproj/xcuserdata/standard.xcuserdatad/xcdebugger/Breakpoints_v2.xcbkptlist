@@ -649,8 +649,8 @@
             filePath = "OSXLogger/Views/VisionMetalOverlay/MetalView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "makeNSView(context:)"
             landmarkType = "7">
             <Locations>
@@ -697,25 +697,9 @@
             filePath = "OSXLogger/Views/VisionMetalOverlay/MetalView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "updateNSView(_:context:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8B2AD3CE-6DB4-4817-AE91-C71E9FD76D22"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OSXLogger/Views/VisionMetalOverlay/MetalViewCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "update(textObservations:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

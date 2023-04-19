@@ -1,56 +1,30 @@
-//
-//  Shaders.metal
-//  OSXLogger
-//
-//  Created by standard on 4/19/23.
-//
 
 #include <metal_stdlib>
 using namespace metal;
 
-
-
+#include "ShaderDefinitions.h"
 
 struct VertexOut {
-    float4 position [[position]];
+    float4 color;
+    float4 pos [[position]];
 };
 
-// Uniforms
-struct Uniforms {
-    float time;
-};
-
-// Metal fragment shader function
-fragment float4 myFragmentShader(
-    VertexOut vertexOut [[stage_in]],
-    constant Uniforms& uniforms [[buffer(0)]]
-) {
-    // Calculate a value between 0 and 1 that oscillates over time
-    float oscillation = 0.5 + 0.5 * sin(uniforms.time);
-
-    // Interpolate between green and pink using the oscillation value
-    float4 green = float4(0.0, 1.0, 0.0, 1.0);
-    float4 pink = float4(1.0, 0.0, 1.0, 1.0);
-    float4 color = mix(green, pink, oscillation);
-
-    // Return the interpolated color
-    return color;
+vertex VertexOut vertexShader(const device Vertex *vertexArray [[buffer(0)]], unsigned int vid [[vertex_id]])
+{
+    // Get the data for the current vertex.
+    Vertex in = vertexArray[vid];
+    
+    VertexOut out;
+    
+    // Pass the vertex color directly to the rasterizer
+    out.color = in.color;
+    // Pass the already normalized screen-space coordinates to the rasterizer
+    out.pos = float4(in.pos.x, in.pos.y, 0, 1);
+    
+    return out;
 }
 
-
-
-
-struct VertexIn {
-    float2 position;
-};
-
-vertex VertexOut vertex_main(constant VertexIn *vertices [[buffer(0)]],
-                             unsigned int vid [[vertex_id]])
+fragment float4 fragmentShader(VertexOut interpolated [[stage_in]], constant FragmentUniforms &uniforms [[buffer(0)]])
 {
-    VertexOut out;
-
-    out.position = float4(vertices[vid].position, 0.0, 1.0);
-
-
-    return out;
+    return float4(uniforms.brightness * interpolated.color.rgb, interpolated.color.a);
 }
