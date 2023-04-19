@@ -36,59 +36,55 @@ class Coordinator : NSObject, MTKViewDelegate {
     }
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
     }
+    
     func draw(in view: MTKView) {
-//        print("redraw")
-        guard let drawable = view.currentDrawable else {
+        // Get the current drawable and command buffer
+        guard let drawable = view.currentDrawable,
+              let commandBuffer = metalCommandQueue.makeCommandBuffer(),
+              let renderPassDescriptor = view.currentRenderPassDescriptor else {
             return
         }
         
-        guard let commandBuffer = metalCommandQueue.makeCommandBuffer() else {
-            return
-        }
-        
-        guard let renderPassDescriptor = view.currentRenderPassDescriptor else { return }
-        
-//        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0, 1, 0, 1)
-//        renderPassDescriptor.colorAttachments[0].loadAction = .clear
-//        renderPassDescriptor.colorAttachments[0].storeAction = .store
-        
+        // Create a render command encoder
         let renderCommandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor)!
         
+        // Set the vertex buffer
         let flatVertices = verticesSegments.flatMap { $0 }
-        
         if flatVertices.count > 0 {
             let vertexBuffer = device.makeBuffer(bytes: flatVertices, length: MemoryLayout<VertexIn>.stride * flatVertices.count, options: [])
-
             renderCommandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-
         }
         
-        // Create a render pipeline state descriptor
-        let pipelineDescriptor = MTLRenderPipelineDescriptor()
+        // Set the shader functions
         let library = device.makeDefaultLibrary()!
-
-        pipelineDescriptor.vertexFunction = library.makeFunction(name: "vertex_main") // Set the vertex function
-        pipelineDescriptor.fragmentFunction = library.makeFunction(name: "myFragmentShader") // Set the fragment function
-        pipelineDescriptor.colorAttachments[0].pixelFormat = view.colorPixelFormat // Set the pixel format of the color attachment
-        
-        // Create a render pipeline state object
+        let vertexFunction = library.makeFunction(name: "vertex_main")
+        let fragmentFunction = library.makeFunction(name: "myFragmentShader")
+        let pipelineDescriptor = MTLRenderPipelineDescriptor()
+        pipelineDescriptor.vertexFunction = vertexFunction
+        pipelineDescriptor.fragmentFunction = fragmentFunction
+        pipelineDescriptor.colorAttachments[0].pixelFormat = view.colorPixelFormat
         let renderPipelineState = try! device.makeRenderPipelineState(descriptor: pipelineDescriptor)
-
-        // Set the render pipeline state on the render command encoder
         renderCommandEncoder.setRenderPipelineState(renderPipelineState)
 
+        // Set up the time constant for the shader
+        let currentTime = CACurrentMediaTime()
+        var time = Float(currentTime)
+        let timeBuffer = device.makeBuffer(bytes: &time, length: MemoryLayout<Float>.size, options: [])
+        renderCommandEncoder.setFragmentBuffer(timeBuffer, offset: 0, index: 0)
         
+        // Draw the vertices
         if verticesSegments.count > 0 {
             for i in 0..<verticesSegments.count {
                 let verticesInSegment = verticesSegments[i]
                 renderCommandEncoder.drawPrimitives(type: .triangleStrip, vertexStart: i*verticesInSegment.count, vertexCount: verticesInSegment.count)
             }
         }
-
-        renderCommandEncoder.endEncoding()
         
+        // Finish encoding and commit the command buffer
+        renderCommandEncoder.endEncoding()
         commandBuffer.present(drawable)
         commandBuffer.commit()
     }
+
 
 }
