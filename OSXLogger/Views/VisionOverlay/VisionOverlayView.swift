@@ -50,17 +50,21 @@ struct VisionOverlayView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
+                
+                /*
                 ForEach(screenAnalyzer.objects, id: \.uuid) { object in
                     positionMarkerView(normalizedRect: object.boundingBox, in: geometry) {
                         VisionMarkerView(type: .redBold)
                     }
-                }
+                }*/
 
-                ForEach(screenAnalyzer.text, id: \.uuid) { txt in
+                ForEach(screenAnalyzer.text, id: \.self) { txt in
                     positionMarkerView(normalizedRect: txt.boundingBox, in: geometry) {
                         VisionMarkerView(type: .greenThin)
                     }
                 }
+                
+                /*
 
                 ForEach(screenAnalyzer.hands, id: \.uuid) { hand in
                     ForEach(hand.availableJointNames, id: \.self) { joint in
@@ -82,7 +86,7 @@ struct VisionOverlayView: View {
                             }
                         }
                     }
-                }
+                } */
 
             }
             // Geometry reader makes the view shrink to its smallest size

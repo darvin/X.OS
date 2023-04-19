@@ -28,7 +28,7 @@ struct VisionMarkerView: View {
 
         case .greenThin:
             Rectangle()
-                .stroke(lineWidth: 0.3)
+                .stroke(lineWidth: 0.4)
                 .foregroundColor(.green.opacity(0.9))
                 .background(.green.opacity(0.04))
                 .accessibilityIgnoresInvertColors(true)

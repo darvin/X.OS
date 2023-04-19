@@ -59,27 +59,32 @@ class ScreenAnalyzer: ObservableObject {
         set {
             _screenRecorder = newValue
             
-            let pixelBufferPublisher: any Publisher<CVPixelBuffer, Never> = _screenRecorder!.cvBufferSubject
-            
-            pixelBufferPublisher
-                .subscribe(textRecognizer)
-            
+            let pixelBufferPublisher = _screenRecorder!.cvBufferSubject
             let observationPublisher = textRecognizer.observationsSubject
+            let backgroundQueue = DispatchQueue.global(qos: .userInteractive)
+
+            pixelBufferPublisher
+    //            .debounce(for: .seconds(0.2), scheduler: RunLoop.main)
+//                .throttle(for: .seconds(0.1), scheduler: RunLoop.main, latest: true)
+                .receive(on: backgroundQueue)
+                .subscribe(textRecognizer)
+            observationPublisher.send([])
             
             
             Publishers.RemoveDuplicates(
                 upstream: observationPublisher.eraseToAnyPublisher(),
                 //                .debounce(for: .seconds(0.01), scheduler: RunLoop.main) //debounce will erase absolutely any camera observation
                 predicate: {
+                    return false
                     guard let rects1 = $0 as? [VNRectangleObservation],
                           let rects2 = $1 as? [VNRectangleObservation]
                     else {
                         return $0 == $1
                     }
-                    let isEqual = rects1.isAlmostEqual(with: VNEdgeInsets(top: 1.2, left: 10, bottom: 1.3, right: 10), to: rects2)
-    //                if isEqual, rects1.count > 0 {
-    //                    print("is equal")
-    //                }
+                    let isEqual = rects1.isAlmostEqual(with: VNEdgeInsets(top: 3.2, left: 10, bottom: 3.3, right: 10), to: rects2)
+                    if isEqual, rects1.count > 0 {
+                        print("is equal")
+                    }
                     return isEqual
                 }
             )
@@ -91,7 +96,7 @@ class ScreenAnalyzer: ObservableObject {
                     self.hands = observations.filter { $0 is VNHumanHandPoseObservation } as! [VNHumanHandPoseObservation]
                     self.humanBodyPoses = observations.filter { $0 is VNHumanBodyPoseObservation } as! [VNHumanBodyPoseObservation]
 
-                    print (self.text)
+                    print (Date())
                 }.store(in: &subscriptions)
 
 
@@ -101,5 +106,47 @@ class ScreenAnalyzer: ObservableObject {
         }
     }
     init() {
+    }
+}
+
+
+
+
+extension CVPixelBuffer {
+    func isAlmostEqual(to another: CVPixelBuffer) -> Bool {
+        let old = self
+        let new = another
+        CVPixelBufferLockBaseAddress(old, .readOnly)
+        CVPixelBufferLockBaseAddress(new, .readOnly)
+        let oldP = CVPixelBufferGetBaseAddress(old)
+        let newP = CVPixelBufferGetBaseAddress(new)
+
+        let oldBuf = unsafeBitCast(oldP, to: UnsafeMutablePointer<UInt8>.self)
+        let newBuf = unsafeBitCast(newP, to: UnsafeMutablePointer<UInt8>.self)
+
+        let oldLen = CVPixelBufferGetDataSize(old)
+        let newLen = CVPixelBufferGetDataSize(new)
+
+        var isEqual = (oldLen == newLen)
+
+        var differentBytes = 0
+        let differentBytesTreshold = newLen / 100
+
+        if oldLen == newLen && oldLen > 0 {
+            for i in 0 ..< oldLen {
+                if oldBuf[i] != newBuf[i] {
+                    differentBytes += 1
+                    if differentBytes >= differentBytesTreshold {
+                        isEqual = false
+                        break
+                    }
+                }
+            }
+        }
+
+        CVPixelBufferUnlockBaseAddress(old, .readOnly)
+        CVPixelBufferUnlockBaseAddress(new, .readOnly)
+
+        return isEqual
     }
 }

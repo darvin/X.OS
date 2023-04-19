@@ -19,7 +19,7 @@ struct ContentView: View {
     @State var userStopped = false
     @State var disableInput = false
     @State var isUnauthorized = false
-    @State var isOverlayVisible = false
+    @State var isOverlayVisible = true
 
     @StateObject var screenRecorder = ScreenRecorder()
     @StateObject var screenAnalyzer = ScreenAnalyzer()
