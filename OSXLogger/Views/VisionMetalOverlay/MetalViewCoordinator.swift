@@ -23,7 +23,7 @@ class Coordinator : NSObject, MTKViewDelegate {
 
     
     func update(textObservations:[VNRecognizedTextObservation]) {
-        vertices = (textObservations as [VNRectangleObservation]).toVertices()
+        vertices = (textObservations as [VNRectangleObservation]).toVerticesArray()
     }
     
     init(_ parent: MetalView) {
@@ -76,7 +76,9 @@ class Coordinator : NSObject, MTKViewDelegate {
         renderCommandEncoder.setRenderPipelineState(renderPipelineState)
 
         if vertices.count > 0 {
-            renderCommandEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: vertices.count)
+            for i in 0...vertices.count/6 {
+                renderCommandEncoder.drawPrimitives(type: .triangleStrip, vertexStart: i*6, vertexCount: 6)
+            }
         }
 
         renderCommandEncoder.endEncoding()

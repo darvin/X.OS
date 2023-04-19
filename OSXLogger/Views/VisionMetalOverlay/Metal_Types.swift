@@ -8,7 +8,6 @@
 import Foundation
 import simd
 
-
 struct VertexIn {
     var position: SIMD2<Float>
 }

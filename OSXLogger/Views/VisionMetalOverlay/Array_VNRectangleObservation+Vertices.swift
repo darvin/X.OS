@@ -9,7 +9,7 @@ import Foundation
 import Vision
 
 extension Array where Element == VNRectangleObservation {
-    func toVertices() -> [VertexIn] {
+    func toVerticesArray() -> [VertexIn] {
         return flatMap { observation in
             let bottomLeft = observation.bottomLeft
             let bottomRight = observation.bottomRight
@@ -25,13 +25,16 @@ extension Array where Element == VNRectangleObservation {
             let topRightPos = SIMD2<Float>((Float(topRight.x) * scale) + translate, (Float(topRight.y) * scale) + translate)
             
             return [
+                // First triangle
                 VertexIn(position: bottomLeftPos),
-                VertexIn(position: bottomRightPos),
-                VertexIn(position: topLeftPos),
-                VertexIn(position: topRightPos),
+                 VertexIn(position: topLeftPos),
+                 VertexIn(position: topRightPos),
+                // Second triangle
                 VertexIn(position: bottomLeftPos),
-                VertexIn(position: topLeftPos),
+                 VertexIn(position: topRightPos),
+                 VertexIn(position: bottomRightPos)
             ]
+
         }
     }
 }
