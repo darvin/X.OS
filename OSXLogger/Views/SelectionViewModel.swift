@@ -22,11 +22,25 @@ class SelectionViewModel: ObservableObject {
     @Published var selectedTextObservations: [VNRecognizedTextObservation] = []
     @Published var selectedText = ""
 
+    @Published var responseText = ""
+
     private var subscriptions = Set<AnyCancellable>()
+
+    private let assistant = try! Assistant()
 
     init(uiState: UIState, screenAnalyzer: ScreenAnalyzer) {
         self.uiState = uiState
         self.screenAnalyzer = screenAnalyzer
+
+        uiState.$isSelecting.sink { isSelecting in
+            if !isSelecting {
+                Task {
+                    await self.assistant.respond(to: self.selectedText)
+                    self.responseText = self.assistant.lastResponse
+                }
+            }
+        }
+        .store(in: &subscriptions)
 
         screenAnalyzer.$text.sink { text in
             guard let selectedRect = uiState.selectedRect else {

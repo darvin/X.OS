@@ -29,6 +29,9 @@
 		9A06C71E29F2BEBB00CF0FAA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A06C71D29F2BEBB00CF0FAA /* Info.plist */; };
 		9A06C72029F2C35B00CF0FAA /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C71F29F2C35B00CF0FAA /* SelectionView.swift */; };
 		9A06C72229F2C6B000CF0FAA /* SelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C72129F2C6B000CF0FAA /* SelectionViewModel.swift */; };
+		9A06C72529F2D18F00CF0FAA /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9A06C72429F2D18F00CF0FAA /* OpenAISwift */; };
+		9A06C72729F2D1A300CF0FAA /* Assistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C72629F2D1A300CF0FAA /* Assistant.swift */; };
+		9A06C72929F2D1F600CF0FAA /* SECRET.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A06C72829F2D1F600CF0FAA /* SECRET.plist */; };
 		9A70652629AB83260049E29B /* OSXLoggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70652529AB83260049E29B /* OSXLoggerApp.swift */; };
 		9A70652829AB83260049E29B /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70652729AB83260049E29B /* OverlayView.swift */; };
 		9A70652A29AB83270049E29B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A70652929AB83270049E29B /* Assets.xcassets */; };
@@ -85,6 +88,8 @@
 		9A06C71D29F2BEBB00CF0FAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A06C71F29F2C35B00CF0FAA /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		9A06C72129F2C6B000CF0FAA /* SelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewModel.swift; sourceTree = "<group>"; };
+		9A06C72629F2D1A300CF0FAA /* Assistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assistant.swift; sourceTree = "<group>"; };
+		9A06C72829F2D1F600CF0FAA /* SECRET.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SECRET.plist; sourceTree = "<group>"; };
 		9A70652229AB83260049E29B /* OSXLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSXLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A70652529AB83260049E29B /* OSXLoggerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSXLoggerApp.swift; sourceTree = "<group>"; };
 		9A70652729AB83260049E29B /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
@@ -111,6 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A06C71229F2AE0300CF0FAA /* Swindler in Frameworks */,
+				9A06C72529F2D18F00CF0FAA /* OpenAISwift in Frameworks */,
 				9A06C6A129EC397300CF0FAA /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +231,7 @@
 		9A70652429AB83260049E29B /* OSXLogger */ = {
 			isa = PBXGroup;
 			children = (
+				9A06C72829F2D1F600CF0FAA /* SECRET.plist */,
 				9A06C71D29F2BEBB00CF0FAA /* Info.plist */,
 				9A06C6FE29F0544500CF0FAA /* OSXLogger-Bridging-Header.h */,
 				9A06C70929F28F2800CF0FAA /* UIState.swift */,
@@ -236,6 +243,7 @@
 				9A70652E29AB83270049E29B /* OSXLogger.entitlements */,
 				9A70652929AB83270049E29B /* Assets.xcassets */,
 				9A70652B29AB83270049E29B /* Preview Content */,
+				9A06C72629F2D1A300CF0FAA /* Assistant.swift */,
 			);
 			path = OSXLogger;
 			sourceTree = "<group>";
@@ -309,6 +317,7 @@
 			packageProductDependencies = (
 				9A06C6A029EC397300CF0FAA /* KeyboardShortcuts */,
 				9A06C71129F2AE0300CF0FAA /* Swindler */,
+				9A06C72429F2D18F00CF0FAA /* OpenAISwift */,
 			);
 			productName = OSXLogger;
 			productReference = 9A70652229AB83260049E29B /* OSXLogger.app */;
@@ -386,6 +395,7 @@
 			packageReferences = (
 				9A06C69F29EC397300CF0FAA /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
 				9A06C71029F2AE0300CF0FAA /* XCRemoteSwiftPackageReference "Swindler" */,
+				9A06C72329F2D18F00CF0FAA /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 			);
 			productRefGroup = 9A70652329AB83260049E29B /* Products */;
 			projectDirPath = "";
@@ -403,6 +413,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A06C72929F2D1F600CF0FAA /* SECRET.plist in Resources */,
 				9A70652D29AB83270049E29B /* Preview Assets.xcassets in Resources */,
 				9A70652A29AB83270049E29B /* Assets.xcassets in Resources */,
 				9A06C71E29F2BEBB00CF0FAA /* Info.plist in Resources */,
@@ -450,6 +461,7 @@
 				9AE6D92929AB8C99004B7349 /* WindowLayoutView.swift in Sources */,
 				9A06C70329F0551300CF0FAA /* Shaders.metal in Sources */,
 				9A06C6AE29EC42DB00CF0FAA /* ScreenAnalyzer.swift in Sources */,
+				9A06C72729F2D1A300CF0FAA /* Assistant.swift in Sources */,
 				9A70655729AB848E0049E29B /* MaterialView.swift in Sources */,
 				9A06C71629F2B47300CF0FAA /* FloatingPanel.swift in Sources */,
 				9A06C6A729EC3A0600CF0FAA /* SettingsView.swift in Sources */,
@@ -802,6 +814,14 @@
 				kind = branch;
 			};
 		};
+		9A06C72329F2D18F00CF0FAA /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/STCData/OpenAISwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -814,6 +834,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9A06C71029F2AE0300CF0FAA /* XCRemoteSwiftPackageReference "Swindler" */;
 			productName = Swindler;
+		};
+		9A06C72429F2D18F00CF0FAA /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A06C72329F2D18F00CF0FAA /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

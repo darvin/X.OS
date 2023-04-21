@@ -28,7 +28,8 @@ class UIState: ObservableObject {
     @Published
     var selectedRect: NSRect? = nil
 
-    private var isSelecting = false
+    @Published
+    var isSelecting = false
 
     func toggleOverlay() {
         isWindowOverlayVisible.toggle()

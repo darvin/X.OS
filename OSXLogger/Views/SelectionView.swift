@@ -12,5 +12,7 @@ struct SelectionView: View {
 
     var body: some View {
         Text(selectionViewModel.selectedText)
+        Spacer()
+        Text(selectionViewModel.responseText)
     }
 }
