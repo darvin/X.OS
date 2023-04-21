@@ -113,9 +113,9 @@ class Renderer: NSObject, MTKViewDelegate {
 
         renderVertices(with: renderEncoder, vertices: cornerMarkerVertices)
 
-        renderEncoder.setRenderPipelineState(prettyEmptySpacePipelineState)
-
-        renderVertices(with: renderEncoder, vertices: emptySpaceVertices)
+//        renderEncoder.setRenderPipelineState(prettyEmptySpacePipelineState)
+//
+//        renderVertices(with: renderEncoder, vertices: emptySpaceVertices)
 
         renderEncoder.endEncoding()
         commandBuffer.present(view.currentDrawable!)

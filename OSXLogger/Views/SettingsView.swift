@@ -5,9 +5,8 @@
 //  Created by standard on 4/16/23.
 //
 
-
-import SwiftUI
 import KeyboardShortcuts
+import SwiftUI
 
 struct SettingsScreen: View {
     var body: some View {

@@ -20,6 +20,7 @@
 		9A06C6FD29F0541C00CF0FAA /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6FC29F0541C00CF0FAA /* Renderer.swift */; };
 		9A06C70329F0551300CF0FAA /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C70129F0551300CF0FAA /* Shaders.metal */; };
 		9A06C70829F28D3F00CF0FAA /* TrackingAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C70729F28D3F00CF0FAA /* TrackingAreaView.swift */; };
+		9A06C70A29F28F2800CF0FAA /* UIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C70929F28F2800CF0FAA /* UIState.swift */; };
 		9A70652629AB83260049E29B /* OSXLoggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70652529AB83260049E29B /* OSXLoggerApp.swift */; };
 		9A70652829AB83260049E29B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70652729AB83260049E29B /* ContentView.swift */; };
 		9A70652A29AB83270049E29B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A70652929AB83270049E29B /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		9A06C70129F0551300CF0FAA /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		9A06C70229F0551300CF0FAA /* ShaderDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderDefinitions.h; sourceTree = "<group>"; };
 		9A06C70729F28D3F00CF0FAA /* TrackingAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingAreaView.swift; sourceTree = "<group>"; };
+		9A06C70929F28F2800CF0FAA /* UIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIState.swift; sourceTree = "<group>"; };
 		9A70652229AB83260049E29B /* OSXLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSXLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A70652529AB83260049E29B /* OSXLoggerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSXLoggerApp.swift; sourceTree = "<group>"; };
 		9A70652729AB83260049E29B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				9A70652729AB83260049E29B /* ContentView.swift */,
 				9A70655429AB848E0049E29B /* CapturePreview.swift */,
 				9A06C6A629EC3A0600CF0FAA /* SettingsView.swift */,
+				9A06C70929F28F2800CF0FAA /* UIState.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				9AE6D92D29AB8DDE004B7349 /* DisplayListLayoutView.swift in Sources */,
 				9A70652629AB83260049E29B /* OSXLoggerApp.swift in Sources */,
 				9A06C6F229F00DE700CF0FAA /* MetalView.swift in Sources */,
+				9A06C70A29F28F2800CF0FAA /* UIState.swift in Sources */,
 				9A06C70829F28D3F00CF0FAA /* TrackingAreaView.swift in Sources */,
 				9A06C6A429EC39C300CF0FAA /* KeyboardShortcutsConstants.swift in Sources */,
 				9A06C6B329EC4C3000CF0FAA /* VisionMarkerView.swift in Sources */,

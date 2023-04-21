@@ -5,11 +5,10 @@
 //  Created by standard on 4/16/23.
 //
 
+import Combine
 import Foundation
 import SwiftUI
 import Vision
-import Combine
-
 
 #if os(iOS)
     typealias VNEdgeInsets = UIEdgeInsets
@@ -25,7 +24,6 @@ import Combine
     }
 
 #endif
-
 
 extension Array where Element == VNRectangleObservation {
     func isAlmostEqual(with insets: VNEdgeInsets, to other: [VNRectangleObservation]) -> Bool {
@@ -58,24 +56,23 @@ class ScreenAnalyzer: ObservableObject {
     var screenRecorder: ScreenRecorder? {
         set {
             _screenRecorder = newValue
-            
+
             let pixelBufferPublisher = _screenRecorder!.cvBufferSubject
             let observationPublisher = textRecognizer.observationsSubject
             let backgroundQueue = DispatchQueue.global(qos: .userInteractive)
 
             pixelBufferPublisher
-    //            .debounce(for: .seconds(0.2), scheduler: RunLoop.main)
+                //            .debounce(for: .seconds(0.2), scheduler: RunLoop.main)
 //                .throttle(for: .seconds(0.1), scheduler: RunLoop.main, latest: true)
                 .receive(on: backgroundQueue)
                 .subscribe(textRecognizer)
             observationPublisher.send([])
-            
-            
+
             Publishers.RemoveDuplicates(
                 upstream: observationPublisher.eraseToAnyPublisher(),
                 //                .debounce(for: .seconds(0.01), scheduler: RunLoop.main) //debounce will erase absolutely any camera observation
                 predicate: {
-                    return false
+//                    return false
                     guard let rects1 = $0 as? [VNRectangleObservation],
                           let rects2 = $1 as? [VNRectangleObservation]
                     else {
@@ -89,28 +86,23 @@ class ScreenAnalyzer: ObservableObject {
                 }
             )
 
-                .receive(on: RunLoop.main)
-                .sink { observations in
-                    self.objects = observations.filter { $0 is VNRecognizedObjectObservation } as! [VNRecognizedObjectObservation]
-                    self.text = observations.filter { $0 is VNRecognizedTextObservation } as! [VNRecognizedTextObservation]
-                    self.hands = observations.filter { $0 is VNHumanHandPoseObservation } as! [VNHumanHandPoseObservation]
-                    self.humanBodyPoses = observations.filter { $0 is VNHumanBodyPoseObservation } as! [VNHumanBodyPoseObservation]
+            .receive(on: RunLoop.main)
+            .sink { observations in
+                self.objects = observations.filter { $0 is VNRecognizedObjectObservation } as! [VNRecognizedObjectObservation]
+                self.text = observations.filter { $0 is VNRecognizedTextObservation } as! [VNRecognizedTextObservation]
+                self.hands = observations.filter { $0 is VNHumanHandPoseObservation } as! [VNHumanHandPoseObservation]
+                self.humanBodyPoses = observations.filter { $0 is VNHumanBodyPoseObservation } as! [VNHumanBodyPoseObservation]
 
-                    print (Date())
-                }.store(in: &subscriptions)
-
-
+                print(Date())
+            }.store(in: &subscriptions)
         }
         get {
             _screenRecorder
         }
     }
-    init() {
-    }
+
+    init() {}
 }
-
-
-
 
 extension CVPixelBuffer {
     func isAlmostEqual(to another: CVPixelBuffer) -> Bool {

@@ -7,61 +7,38 @@
 
 import SwiftUI
 
-
-import SwiftUI
-import ScreenCaptureKit
-import OSLog
 import Combine
 import KeyboardShortcuts
+import OSLog
+import ScreenCaptureKit
+import SwiftUI
 
 struct ContentView: View {
-    
-    @State var userStopped = false
-    @State var disableInput = false
     @State var isUnauthorized = false
-    @State var isOverlayVisible = true
 
     @StateObject var screenRecorder = ScreenRecorder()
     @StateObject var screenAnalyzer = ScreenAnalyzer()
+    @ObservedObject var uiState = UIState()
 
     var body: some View {
-        let previewScale = 0.2
-        ZStack (alignment: .bottomTrailing) {
-
-/*
-            screenRecorder.capturePreview
-                .border(Color.green)
-                .frame(maxWidth: screenRecorder.contentSize.width*previewScale, maxHeight: screenRecorder.contentSize.height*previewScale)
-                .aspectRatio(screenRecorder.contentSize, contentMode: .fit)
-                .padding(8)
-                .overlay {
-                    if userStopped {
-                        Image(systemName: "nosign")
-                            .font(.system(size: 250, weight: .bold))
-                            .foregroundColor(Color(white: 0.3, opacity: 1.0))
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .background(Color(white: 0.0, opacity: 0.5))
-                    }
-                }
-                .opacity(0.4)*/
-               
+        ZStack(alignment: .bottomTrailing) {
             DisplayListLayoutView(screenRecorder: screenRecorder)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .opacity(isOverlayVisible ? 0.1 : 0.0)
-            
-//            VisionOverlayView(screenAnalyzer: screenAnalyzer)
-//                .frame(maxWidth: .infinity, maxHeight: .infinity)
-//                .opacity(isOverlayVisible ? 1.0 : 0.0)
-//
+                .opacity(uiState.isWindowOverlayVisible ? 0.1 : 0.0)
+
+            if uiState.isSelectingOverlayVisible {
+                VisionOverlayView(screenAnalyzer: screenAnalyzer)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+
             MetalView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .opacity(isOverlayVisible ? 0.7 : 0.0)
+                .opacity(uiState.isCornerMarkersOverlayVisible ? 0.7 : 0.0)
                 .environmentObject(screenAnalyzer)
-
         }
         .overlay {
             if isUnauthorized {
-                VStack() {
+                VStack {
                     Spacer()
                     VStack {
                         Text("No screen recording permission.")
@@ -73,11 +50,12 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .background(.red)
-                    
                 }
             }
         }
-        .navigationTitle("Screen Capture Sample")
+        .trackingMouse(onMove: { point in
+            uiState.trackMouse(point: point)
+        })
         .onAppear {
             screenAnalyzer.screenRecorder = screenRecorder
             Task {
@@ -85,15 +63,20 @@ struct ContentView: View {
                     await screenRecorder.start()
                 } else {
                     isUnauthorized = true
-                    disableInput = true
                 }
             }
-            
-            
+
             KeyboardShortcuts.onKeyUp(for: .toggleOverlay) { [self] in
-                self.isOverlayVisible.toggle()
+                DispatchQueue.main.async {
+                    uiState.toggleOverlay()
+                }
             }
 
+            KeyboardShortcuts.onKeyUp(for: .toggleSelecting) { [self] in
+                DispatchQueue.main.async {
+                    uiState.toggleSelecting()
+                }
+            }
         }
     }
 }

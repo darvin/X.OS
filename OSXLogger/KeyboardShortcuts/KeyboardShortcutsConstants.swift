@@ -12,4 +12,5 @@ import KeyboardShortcuts
 extension KeyboardShortcuts.Name {
     static let toggleOverlay = Self("toggleOverlay", default: .init(.o, modifiers: [.command, .option]))
 
+    static let toggleSelecting = Self("toggleSelecting", default: .init(.y, modifiers: [.command, .option]))
 }
