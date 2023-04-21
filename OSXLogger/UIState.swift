@@ -6,20 +6,13 @@
 //
 import SwiftUI
 
-private let isOverlaysVisibleInitially = false
-
-extension NSRect {
-    func including(point: NSPoint) -> NSRect {
-        let minX = min(self.minX, point.x)
-        let minY = min(self.minY, point.y)
-        let maxX = max(self.maxX, point.x)
-        let maxY = max(self.maxY, point.y)
-        return NSRect(x: minX, y: minY, width: maxX - minX, height: maxY - minY)
-    }
-}
+private let isOverlaysVisibleInitially = true
 
 @MainActor
 class UIState: ObservableObject {
+    @Published
+    var isMainOverlayWindowPresented = false
+
     @Published
     var isCornerMarkersOverlayVisible = isOverlaysVisibleInitially
 
@@ -29,10 +22,10 @@ class UIState: ObservableObject {
     @Published
     var isWindowOverlayVisible = isOverlaysVisibleInitially
 
-    private var isSelecting = false
-
     @Published
     var selectedRect: NSRect? = nil
+
+    private var isSelecting = false
 
     func toggleOverlay() {
         isWindowOverlayVisible.toggle()
@@ -71,5 +64,15 @@ class UIState: ObservableObject {
             resetSelection()
             startSelecting()
         }
+    }
+}
+
+extension NSRect {
+    func including(point: NSPoint) -> NSRect {
+        let minX = min(self.minX, point.x)
+        let minY = min(self.minY, point.y)
+        let maxX = max(self.maxX, point.x)
+        let maxY = max(self.maxY, point.y)
+        return NSRect(x: minX, y: minY, width: maxX - minX, height: maxY - minY)
     }
 }

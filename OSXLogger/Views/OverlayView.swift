@@ -13,12 +13,14 @@ import OSLog
 import ScreenCaptureKit
 import SwiftUI
 
-struct ContentView: View {
+struct OverlayView: View {
     @State var isUnauthorized = false
 
-    @StateObject var screenRecorder = ScreenRecorder()
-    @StateObject var screenAnalyzer = ScreenAnalyzer()
-    @ObservedObject var uiState = UIState()
+    @EnvironmentObject var screenRecorder: ScreenRecorder
+    @EnvironmentObject var screenAnalyzer: ScreenAnalyzer
+    @EnvironmentObject var uiState: UIState
+
+    @State var theWindow: NSWindow?
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -83,6 +85,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        OverlayView()
     }
 }
