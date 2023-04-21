@@ -13,12 +13,13 @@
 		9A06C6AA29EC41FB00CF0FAA /* TextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6A929EC41FB00CF0FAA /* TextRecognizer.swift */; };
 		9A06C6AC29EC423100CF0FAA /* VisionWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6AB29EC423100CF0FAA /* VisionWorker.swift */; };
 		9A06C6AE29EC42DB00CF0FAA /* ScreenAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6AD29EC42DB00CF0FAA /* ScreenAnalyzer.swift */; };
-		9A06C6B129EC4BD400CF0FAA /* VisionOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6B029EC4BD400CF0FAA /* VisionOverlayView.swift */; };
+		9A06C6B129EC4BD400CF0FAA /* SelectingOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6B029EC4BD400CF0FAA /* SelectingOverlayView.swift */; };
 		9A06C6B329EC4C3000CF0FAA /* VisionMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6B229EC4C3000CF0FAA /* VisionMarkerView.swift */; };
 		9A06C6F229F00DE700CF0FAA /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6F129F00DE700CF0FAA /* MetalView.swift */; };
 		9A06C6F829F020F400CF0FAA /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6F729F020F400CF0FAA /* Geometry.swift */; };
 		9A06C6FD29F0541C00CF0FAA /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C6FC29F0541C00CF0FAA /* Renderer.swift */; };
 		9A06C70329F0551300CF0FAA /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C70129F0551300CF0FAA /* Shaders.metal */; };
+		9A06C70829F28D3F00CF0FAA /* TrackingAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C70729F28D3F00CF0FAA /* TrackingAreaView.swift */; };
 		9A70652629AB83260049E29B /* OSXLoggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70652529AB83260049E29B /* OSXLoggerApp.swift */; };
 		9A70652829AB83260049E29B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70652729AB83260049E29B /* ContentView.swift */; };
 		9A70652A29AB83270049E29B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A70652929AB83270049E29B /* Assets.xcassets */; };
@@ -59,7 +60,7 @@
 		9A06C6A929EC41FB00CF0FAA /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
 		9A06C6AB29EC423100CF0FAA /* VisionWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionWorker.swift; sourceTree = "<group>"; };
 		9A06C6AD29EC42DB00CF0FAA /* ScreenAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenAnalyzer.swift; sourceTree = "<group>"; };
-		9A06C6B029EC4BD400CF0FAA /* VisionOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionOverlayView.swift; sourceTree = "<group>"; };
+		9A06C6B029EC4BD400CF0FAA /* SelectingOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingOverlayView.swift; sourceTree = "<group>"; };
 		9A06C6B229EC4C3000CF0FAA /* VisionMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionMarkerView.swift; sourceTree = "<group>"; };
 		9A06C6F129F00DE700CF0FAA /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		9A06C6F729F020F400CF0FAA /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 		9A06C6FE29F0544500CF0FAA /* OSXLogger-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OSXLogger-Bridging-Header.h"; sourceTree = "<group>"; };
 		9A06C70129F0551300CF0FAA /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		9A06C70229F0551300CF0FAA /* ShaderDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderDefinitions.h; sourceTree = "<group>"; };
+		9A06C70729F28D3F00CF0FAA /* TrackingAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingAreaView.swift; sourceTree = "<group>"; };
 		9A70652229AB83260049E29B /* OSXLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSXLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A70652529AB83260049E29B /* OSXLoggerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSXLoggerApp.swift; sourceTree = "<group>"; };
 		9A70652729AB83260049E29B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -143,16 +145,16 @@
 			path = Vision;
 			sourceTree = "<group>";
 		};
-		9A06C6AF29EC4B9400CF0FAA /* VisionMarkersOverlay */ = {
+		9A06C6AF29EC4B9400CF0FAA /* SelectingOverlay */ = {
 			isa = PBXGroup;
 			children = (
-				9A06C6B029EC4BD400CF0FAA /* VisionOverlayView.swift */,
+				9A06C6B029EC4BD400CF0FAA /* SelectingOverlayView.swift */,
 				9A06C6B229EC4C3000CF0FAA /* VisionMarkerView.swift */,
 			);
-			path = VisionMarkersOverlay;
+			path = SelectingOverlay;
 			sourceTree = "<group>";
 		};
-		9A06C6F029F00C5200CF0FAA /* VisionMetalOverlay */ = {
+		9A06C6F029F00C5200CF0FAA /* CornerMarkersOverlay */ = {
 			isa = PBXGroup;
 			children = (
 				9A06C70229F0551300CF0FAA /* ShaderDefinitions.h */,
@@ -160,9 +162,16 @@
 				9A06C6F129F00DE700CF0FAA /* MetalView.swift */,
 				9A06C6FC29F0541C00CF0FAA /* Renderer.swift */,
 				9A06C6F729F020F400CF0FAA /* Geometry.swift */,
-				9A06C6FE29F0544500CF0FAA /* OSXLogger-Bridging-Header.h */,
 			);
-			path = VisionMetalOverlay;
+			path = CornerMarkersOverlay;
+			sourceTree = "<group>";
+		};
+		9A06C70629F28D2A00CF0FAA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9A06C70729F28D3F00CF0FAA /* TrackingAreaView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		9A70651929AB83260049E29B = {
@@ -188,6 +197,7 @@
 		9A70652429AB83260049E29B /* OSXLogger */ = {
 			isa = PBXGroup;
 			children = (
+				9A06C6FE29F0544500CF0FAA /* OSXLogger-Bridging-Header.h */,
 				9A06C6A829EC41EA00CF0FAA /* Vision */,
 				9A06C6A229EC398500CF0FAA /* KeyboardShortcuts */,
 				9AE6D92B29AB8CB3004B7349 /* Capture */,
@@ -229,8 +239,9 @@
 		9AE6D92A29AB8CA9004B7349 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9A06C6F029F00C5200CF0FAA /* VisionMetalOverlay */,
-				9A06C6AF29EC4B9400CF0FAA /* VisionMarkersOverlay */,
+				9A06C70629F28D2A00CF0FAA /* Helpers */,
+				9A06C6F029F00C5200CF0FAA /* CornerMarkersOverlay */,
+				9A06C6AF29EC4B9400CF0FAA /* SelectingOverlay */,
 				9A06C6A529EC39DF00CF0FAA /* WindowOverlay */,
 				9A70652729AB83260049E29B /* ContentView.swift */,
 				9A70655429AB848E0049E29B /* CapturePreview.swift */,
@@ -393,9 +404,10 @@
 				9AE6D92D29AB8DDE004B7349 /* DisplayListLayoutView.swift in Sources */,
 				9A70652629AB83260049E29B /* OSXLoggerApp.swift in Sources */,
 				9A06C6F229F00DE700CF0FAA /* MetalView.swift in Sources */,
+				9A06C70829F28D3F00CF0FAA /* TrackingAreaView.swift in Sources */,
 				9A06C6A429EC39C300CF0FAA /* KeyboardShortcutsConstants.swift in Sources */,
 				9A06C6B329EC4C3000CF0FAA /* VisionMarkerView.swift in Sources */,
-				9A06C6B129EC4BD400CF0FAA /* VisionOverlayView.swift in Sources */,
+				9A06C6B129EC4BD400CF0FAA /* SelectingOverlayView.swift in Sources */,
 				9A06C6AC29EC423100CF0FAA /* VisionWorker.swift in Sources */,
 				9AE6D92929AB8C99004B7349 /* WindowLayoutView.swift in Sources */,
 				9AE6D93129ABB8F8004B7349 /* main.swift in Sources */,
@@ -579,7 +591,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.standard.OSXLogger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "OSXLogger/Views/VisionMetalOverlay/OSXLogger-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "OSXLogger/OSXLogger-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -609,7 +621,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.standard.OSXLogger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "OSXLogger/Views/VisionMetalOverlay/OSXLogger-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "OSXLogger/OSXLogger-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

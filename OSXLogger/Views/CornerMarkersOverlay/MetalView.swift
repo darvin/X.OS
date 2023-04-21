@@ -10,13 +10,12 @@ import SwiftUI
 
 import MetalKit
 struct MetalView: NSViewRepresentable {
-    
     @EnvironmentObject var screenAnalyzer: ScreenAnalyzer
 
-    
     func makeCoordinator() -> Renderer {
         Renderer()
     }
+
     func makeNSView(context: NSViewRepresentableContext<MetalView>) -> MTKView {
         let mtkView = MTKView()
 //        mtkView.preferredFramesPerSecond = 60
@@ -36,9 +35,9 @@ struct MetalView: NSViewRepresentable {
 
         return mtkView
     }
-    func updateNSView(_ nsView: MTKView, context: NSViewRepresentableContext<MetalView>) {
-        context.coordinator.update(textObservations:screenAnalyzer.text)
-//        nsView.delegate?.draw(in: nsView)
 
+    func updateNSView(_: MTKView, context: NSViewRepresentableContext<MetalView>) {
+        context.coordinator.update(textObservations: screenAnalyzer.text)
+//        nsView.delegate?.draw(in: nsView)
     }
 }
