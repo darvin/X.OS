@@ -8,6 +8,16 @@ import SwiftUI
 
 private let isOverlaysVisibleInitially = false
 
+extension NSRect {
+    func including(point: NSPoint) -> NSRect {
+        let minX = min(self.minX, point.x)
+        let minY = min(self.minY, point.y)
+        let maxX = max(self.maxX, point.x)
+        let maxY = max(self.maxY, point.y)
+        return NSRect(x: minX, y: minY, width: maxX - minX, height: maxY - minY)
+    }
+}
+
 @MainActor
 class UIState: ObservableObject {
     @Published
@@ -21,16 +31,23 @@ class UIState: ObservableObject {
 
     private var isSelecting = false
 
-//    @Published
-//    var selectedObservations
+    @Published
+    var selectedRect: NSRect? = nil
 
     func toggleOverlay() {
         isWindowOverlayVisible.toggle()
         isCornerMarkersOverlayVisible.toggle()
     }
 
-    func trackMouse(point _: NSPoint) {
-        if isSelecting {}
+    func trackMouse(point: NSPoint) {
+        if isSelecting {
+            if selectedRect == nil {
+                selectedRect = NSRect(x: point.x - 1, y: point.y - 1, width: 3, height: 3)
+            }
+
+            selectedRect = selectedRect?.including(point: point)
+            print("TRACKING Selection: \(selectedRect)")
+        }
     }
 
     func startSelecting() {
@@ -43,7 +60,9 @@ class UIState: ObservableObject {
         isSelectingOverlayVisible = false
     }
 
-    func resetSelection() {}
+    func resetSelection() {
+        selectedRect = nil
+    }
 
     func toggleSelecting() {
         if isSelecting {

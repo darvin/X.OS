@@ -635,6 +635,21 @@
                   endingLineNumber = "117"
                   offsetFromSymbolStart = "164">
                </Location>
+               <Location
+                  uuid = "18586260-969E-480C-ABD8-5023097FD8D6 - 12376c59e63cd89b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__C.CVBufferRef.isAlmostEqual(to: __C.CVBufferRef) -&gt; Swift.Bool"
+                  moduleName = "OSXLogger"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/standard/STCData/OSXLogger/OSXLogger/Vision/ScreenAnalyzer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "312">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -728,9 +743,9 @@
             filePath = "OSXLogger/Views/UIState.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "startSelecting()"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "endSelecting()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -776,9 +791,9 @@
             filePath = "OSXLogger/Views/UIState.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "endSelecting()"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "toggleSelecting()"
             landmarkType = "7">
             <Locations>
                <Location
