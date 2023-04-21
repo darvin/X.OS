@@ -30,5 +30,9 @@ struct XOSApp: App {
                         .environmentObject(uiState)
                 }
         }
+
+        Window("Selection", id: "selection") {
+            SelectionView(selectionViewModel: SelectionViewModel(uiState: uiState, screenAnalyzer: screenAnalyzer))
+        }
     }
 }

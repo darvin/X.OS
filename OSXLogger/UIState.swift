@@ -6,10 +6,13 @@
 //
 import SwiftUI
 
-private let isOverlaysVisibleInitially = true
+private let isOverlaysVisibleInitially = false
 
 @MainActor
 class UIState: ObservableObject {
+    @Published
+    var isSelectionWindowPresented = false
+
     @Published
     var isMainOverlayWindowPresented = false
 

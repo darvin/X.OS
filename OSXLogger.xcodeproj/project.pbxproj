@@ -27,6 +27,8 @@
 		9A06C71A29F2B5A800CF0FAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C71929F2B5A800CF0FAA /* AppDelegate.swift */; };
 		9A06C71C29F2BA7300CF0FAA /* FullscreenPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C71B29F2BA7300CF0FAA /* FullscreenPanel.swift */; };
 		9A06C71E29F2BEBB00CF0FAA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A06C71D29F2BEBB00CF0FAA /* Info.plist */; };
+		9A06C72029F2C35B00CF0FAA /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C71F29F2C35B00CF0FAA /* SelectionView.swift */; };
+		9A06C72229F2C6B000CF0FAA /* SelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C72129F2C6B000CF0FAA /* SelectionViewModel.swift */; };
 		9A70652629AB83260049E29B /* OSXLoggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70652529AB83260049E29B /* OSXLoggerApp.swift */; };
 		9A70652829AB83260049E29B /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70652729AB83260049E29B /* OverlayView.swift */; };
 		9A70652A29AB83270049E29B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A70652929AB83270049E29B /* Assets.xcassets */; };
@@ -81,6 +83,8 @@
 		9A06C71929F2B5A800CF0FAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A06C71B29F2BA7300CF0FAA /* FullscreenPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullscreenPanel.swift; sourceTree = "<group>"; };
 		9A06C71D29F2BEBB00CF0FAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A06C71F29F2C35B00CF0FAA /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		9A06C72129F2C6B000CF0FAA /* SelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewModel.swift; sourceTree = "<group>"; };
 		9A70652229AB83260049E29B /* OSXLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSXLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A70652529AB83260049E29B /* OSXLoggerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSXLoggerApp.swift; sourceTree = "<group>"; };
 		9A70652729AB83260049E29B /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 				9A70652729AB83260049E29B /* OverlayView.swift */,
 				9A70655429AB848E0049E29B /* CapturePreview.swift */,
 				9A06C6A629EC3A0600CF0FAA /* SettingsView.swift */,
+				9A06C71F29F2C35B00CF0FAA /* SelectionView.swift */,
+				9A06C72129F2C6B000CF0FAA /* SelectionViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -437,6 +443,7 @@
 				9A06C70829F28D3F00CF0FAA /* TrackingAreaView.swift in Sources */,
 				9A06C6A429EC39C300CF0FAA /* KeyboardShortcutsConstants.swift in Sources */,
 				9A06C6B329EC4C3000CF0FAA /* VisionMarkerView.swift in Sources */,
+				9A06C72229F2C6B000CF0FAA /* SelectionViewModel.swift in Sources */,
 				9A06C71A29F2B5A800CF0FAA /* AppDelegate.swift in Sources */,
 				9A06C6B129EC4BD400CF0FAA /* SelectingOverlayView.swift in Sources */,
 				9A06C6AC29EC423100CF0FAA /* VisionWorker.swift in Sources */,
@@ -447,6 +454,7 @@
 				9A06C71629F2B47300CF0FAA /* FloatingPanel.swift in Sources */,
 				9A06C6A729EC3A0600CF0FAA /* SettingsView.swift in Sources */,
 				9A70655629AB848E0049E29B /* CapturePreview.swift in Sources */,
+				9A06C72029F2C35B00CF0FAA /* SelectionView.swift in Sources */,
 				9A06C71C29F2BA7300CF0FAA /* FullscreenPanel.swift in Sources */,
 				9A06C6F829F020F400CF0FAA /* Geometry.swift in Sources */,
 				9A70655229AB84540049E29B /* ScreenRecorder.swift in Sources */,
