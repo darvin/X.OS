@@ -2,6 +2,13 @@
 
 Automate your Mac usage and increase productivity with **X.OS**. This macOS application uses advanced technology to help you streamline your workflow and save time. 
 
+
+
+https://user-images.githubusercontent.com/309302/233943279-dc01f291-ca41-4ca9-8fcd-3cb9b658ed66.mp4
+
+
+
+
 ## Features
 
 1. Interactive tutorials
