@@ -24,12 +24,13 @@ struct OverlayView: View {
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            DisplayListLayoutView(screenRecorder: screenRecorder)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .opacity(uiState.isWindowOverlayVisible ? 0.1 : 0.0)
+            /*
+             DisplayListLayoutView(screenRecorder: screenRecorder)
+                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                 .opacity(uiState.isWindowOverlayVisible ? 0.1 : 0.0)*/
 
             if uiState.isSelectingOverlayVisible {
-                VisionOverlayView(screenAnalyzer: screenAnalyzer)
+                VisionOverlayView(selectionViewModel: SelectionViewModel(uiState: uiState, screenAnalyzer: screenAnalyzer))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
 

@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-private let isOverlaysVisibleInitially = false
+private let isOverlaysVisibleInitially = true
 
 @MainActor
 class UIState: ObservableObject {
@@ -20,7 +20,7 @@ class UIState: ObservableObject {
     var isCornerMarkersOverlayVisible = isOverlaysVisibleInitially
 
     @Published
-    var isSelectingOverlayVisible = false
+    var isSelectingOverlayVisible = true
 
     @Published
     var isWindowOverlayVisible = isOverlaysVisibleInitially
@@ -49,12 +49,12 @@ class UIState: ObservableObject {
 
     func startSelecting() {
         isSelecting = true
-        isSelectingOverlayVisible = true
+//        isSelectingOverlayVisible = true
     }
 
     func endSelecting() {
         isSelecting = false
-        isSelectingOverlayVisible = false
+//        isSelectingOverlayVisible = false
     }
 
     func resetSelection() {

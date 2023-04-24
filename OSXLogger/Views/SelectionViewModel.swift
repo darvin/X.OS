@@ -24,6 +24,8 @@ class SelectionViewModel: ObservableObject {
 
     @Published var responseText = ""
 
+    @Published var isLoading = false
+
     private var subscriptions = Set<AnyCancellable>()
 
     private let assistant = try! Assistant()
@@ -39,6 +41,11 @@ class SelectionViewModel: ObservableObject {
                     self.responseText = self.assistant.lastResponse
                 }
             }
+        }
+        .store(in: &subscriptions)
+
+        assistant.$isWorking.sink {
+            self.isLoading = $0
         }
         .store(in: &subscriptions)
 
@@ -65,10 +72,10 @@ extension Array where Element == VNRecognizedTextObservation {
             let box1 = obs1.boundingBox
             let box2 = obs2.boundingBox
 
-            if box1.minY < box2.minY {
+            if box1.minY > box2.minY {
                 return true
             } else if box1.minY == box2.minY {
-                return box1.minX < box2.minX
+                return box1.minX > box2.minX
             } else {
                 return false
             }
@@ -118,4 +125,12 @@ extension Array where Element == VNRecognizedTextObservation {
 
         return result
     }
+}
+
+func DenormalizedPoint(_ normalized: CGPoint, forSize: CGSize) -> CGPoint {
+    return VNImagePointForNormalizedPoint(normalized, Int(forSize.width), Int(forSize.height)).applying(.init(scaleX: 1, y: -1)).applying(.init(translationX: 0, y: forSize.height))
+}
+
+func DenormalizedRect(_ normalized: CGRect, forSize: CGSize) -> CGRect {
+    return VNImageRectForNormalizedRect(normalized, Int(forSize.width), Int(forSize.height)).applying(.init(scaleX: 1, y: -1)).applying(.init(translationX: 0, y: forSize.height))
 }

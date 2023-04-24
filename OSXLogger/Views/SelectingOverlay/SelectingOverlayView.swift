@@ -12,16 +12,8 @@ import Foundation
 import SwiftUI
 import Vision
 
-func DenormalizedPoint(_ normalized: CGPoint, forSize: CGSize) -> CGPoint {
-    return VNImagePointForNormalizedPoint(normalized, Int(forSize.width), Int(forSize.height)).applying(.init(scaleX: 1, y: -1)).applying(.init(translationX: 0, y: forSize.height))
-}
-
-func DenormalizedRect(_ normalized: CGRect, forSize: CGSize) -> CGRect {
-    return VNImageRectForNormalizedRect(normalized, Int(forSize.width), Int(forSize.height)).applying(.init(scaleX: 1, y: -1)).applying(.init(translationX: 0, y: forSize.height))
-}
-
 struct VisionOverlayView: View {
-    @ObservedObject var screenAnalyzer: ScreenAnalyzer
+    @StateObject var selectionViewModel: SelectionViewModel
 
     func positionMarkerView(normalizedRect: CGRect, in geometry: GeometryProxy, content: () -> some View) -> some View {
         let rect = DenormalizedRect(normalizedRect, forSize: geometry.size)
@@ -52,7 +44,7 @@ struct VisionOverlayView: View {
                      }
                  }*/
 
-                ForEach(screenAnalyzer.text, id: \.self) { txt in
+                ForEach(selectionViewModel.selectedTextObservations, id: \.self) { txt in
                     positionMarkerView(normalizedRect: txt.boundingBox, in: geometry) {
                         VisionMarkerView(type: .greenThin)
                     }

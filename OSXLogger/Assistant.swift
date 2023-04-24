@@ -16,6 +16,9 @@ class Assistant: ObservableObject {
     @Published
     var lastResponse = ""
 
+    @Published
+    var isWorking = false
+
     internal init() throws {
         guard let path = Bundle.main.path(forResource: "SECRET", ofType: "plist") else {
             throw NSError(domain: "BundleError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Couldn't find path to SECRET.plist"])
@@ -35,12 +38,14 @@ class Assistant: ObservableObject {
 
     func respond(to message: String) async {
         do {
+            isWorking = true
             let chat: [ChatMessage] = [
                 ChatMessage(role: .system, content: "Try to come up with the best solution. optimize for runtime. be concise, explain algorithm first"),
                 ChatMessage(role: .user, content: message),
             ]
 
             let result = try await openAI.sendChat(with: chat)
+            isWorking = false
 
             if let txt = result.choices.first?.message.content {
                 lastResponse = txt
