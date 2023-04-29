@@ -6,8 +6,24 @@ Automate your Mac usage and increase productivity with **X.OS**. This macOS appl
 
 https://user-images.githubusercontent.com/309302/233943279-dc01f291-ca41-4ca9-8fcd-3cb9b658ed66.mp4
 
+## Research
+
+### Papers
+
+- [DroidBot-GPT: GPT-powered UI Automation for Android](https://arxiv.org/pdf/2304.07061v1.pdf)
+- [Lexi: Self-Supervised Learning of the UI Language](https://arxiv.org/pdf/2301.10165v1.pdf)
+- [Interactive Task Learning from GUI-Grounded Natural Language Instructions and Demonstrations](https://aclanthology.org/2020.acl-demos.25.pdf)
+- [Mapping Natural Language Instructions to Mobile UI Action Sequences](https://arxiv.org/pdf/2005.03776v2.pdf)
 
 
+### Datasets
+
+ - [UI images paired with descriptions of their functionality](https://github.com/microsoft/uicaption)
+ 
+ ### Similiar projects
+ 
+  - [SUGILITE](https://github.com/tobyli/Sugilite_development)  is a programming-by-demonstration (PBD) system for Android
+  - [Seq2act](https://github.com/deepneuralmachine/seq2act-tensorflow)
 
 ## Features
 
