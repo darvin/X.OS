@@ -17,6 +17,7 @@ https://user-images.githubusercontent.com/309302/233943279-dc01f291-ca41-4ca9-8f
 - [Detecting and Summarizing GUI Changes in Evolving Mobile Apps](https://arxiv.org/pdf/1807.09440.pdf) *old but gold*
 - [DroidBot-GPT: GPT-powered UI Automation for Android](https://arxiv.org/pdf/2304.07061v1.pdf)
 - [Lexi: Self-Supervised Learning of the UI Language](https://arxiv.org/pdf/2301.10165v1.pdf)
+- [Widget Captioning: Generating Natural Language Description for Mobile User Interface Elements](https://arxiv.org/pdf/2010.04295.pdf)
 - [Interactive Task Learning from GUI-Grounded Natural Language Instructions and Demonstrations](https://aclanthology.org/2020.acl-demos.25.pdf)
 - [Mapping Natural Language Instructions to Mobile UI Action Sequences](https://arxiv.org/pdf/2005.03776v2.pdf)
 - [Fill in the Blank: Context-aware Automated Text Input Generation for Mobile GUI Testing](https://arxiv.org/pdf/2212.04732.pdf)
