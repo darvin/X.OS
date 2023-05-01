@@ -11,6 +11,10 @@ https://user-images.githubusercontent.com/309302/233943279-dc01f291-ca41-4ca9-8f
 ### Papers
 - [Screen2Vec: Semantic Embedding of GUI Screens and GUI Components](https://arxiv.org/pdf/2101.11103.pdf)
 - [ScreenSeg: On-Device Screenshot Layout Analysis](https://arxiv.org/pdf/2104.08052.pdf)
+- [Screen Parsing: Towards Reverse Engineering of UI Models from Screenshots](https://arxiv.org/pdf/2109.08763.pdf)
+- [ScreenQA: Large-Scale Question-Answer Pairs Over Mobile App Screenshots](https://arxiv.org/pdf/2209.08199.pdf)
+- [Scrapbook: Screenshot-Based Bookmarks for Effective Digital Resource Curation across Applications](https://arxiv.org/pdf/2209.12318.pdf)
+- [Detecting and Summarizing GUI Changes in Evolving Mobile Apps](https://arxiv.org/pdf/1807.09440.pdf) *old but gold*
 - [DroidBot-GPT: GPT-powered UI Automation for Android](https://arxiv.org/pdf/2304.07061v1.pdf)
 - [Lexi: Self-Supervised Learning of the UI Language](https://arxiv.org/pdf/2301.10165v1.pdf)
 - [Interactive Task Learning from GUI-Grounded Natural Language Instructions and Demonstrations](https://aclanthology.org/2020.acl-demos.25.pdf)
@@ -20,6 +24,7 @@ https://user-images.githubusercontent.com/309302/233943279-dc01f291-ca41-4ca9-8f
 - [Text Extraction and Retrieval from Smartphone Screenshots: Building a Repository for Life in Media](https://arxiv.org/pdf/1801.01316.pdf) *old*
 - [GUESS WHAT’S ON MY SCREEN? CLUSTERING SMARTPHONE SCREENSHOTS WITH ACTIVE LEARNING](https://arxiv.org/pdf/1901.02701.pdf) *old*
 - [On-Device Information Extraction from Screenshots in form of tags](https://arxiv.org/pdf/2001.06094.pdf)
+- [Help, It Looks Confusing: GUI Task Automation Through Demonstration and Follow-up Questions](https://arxiv.org/pdf/1611.03906.pdf) *very old*
 
 ### Datasets
 
