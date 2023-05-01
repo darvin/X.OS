@@ -29,7 +29,7 @@ https://user-images.githubusercontent.com/309302/233943279-dc01f291-ca41-4ca9-8f
 - [Help, It Looks Confusing: GUI Task Automation Through Demonstration and Follow-up Questions](https://arxiv.org/pdf/1611.03906.pdf) *very old*
 
 ### Datasets
-
+ - [Clarity](https://sagelab.io/Clarity/)
  - [UI images paired with descriptions of their functionality](https://github.com/microsoft/uicaption)
  
  ### Similiar projects
