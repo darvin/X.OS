@@ -8,6 +8,15 @@ https://user-images.githubusercontent.com/309302/233943279-dc01f291-ca41-4ca9-8f
 
 ## Research
 
+### Segment Anything Screenshot Inference
+<img width="874" alt="Screenshot 2023-05-02 at 1 39 24 AM" src="https://user-images.githubusercontent.com/309302/235544099-ba077ee3-2809-4113-b736-fb3432e0c77b.png">
+<img width="729" alt="Screenshot 2023-05-02 at 1 33 15 AM" src="https://user-images.githubusercontent.com/309302/235544126-08b54ed1-ae4c-41f8-8122-4071ec1ca882.png">
+
+<img width="809" alt="Screenshot 2023-05-02 at 1 41 34 AM" src="https://user-images.githubusercontent.com/309302/235544150-b2e9ed19-e5be-4f06-967d-623d635d5c3e.png">
+
+([more game inference](https://github.com/darvin/X.RetroGameAIRemaster/blob/main/README.md#segment-anything-screenshot-inference))
+
+
 ### Papers
 - [An Empirical Investigation into the Use of Image Captioning for Automated Software Documentation](https://arxiv.org/pdf/2301.01224.pdf)
 - [Screen2Vec: Semantic Embedding of GUI Screens and GUI Components](https://arxiv.org/pdf/2101.11103.pdf)
