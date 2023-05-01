@@ -9,6 +9,7 @@ https://user-images.githubusercontent.com/309302/233943279-dc01f291-ca41-4ca9-8f
 ## Research
 
 ### Papers
+- [An Empirical Investigation into the Use of Image Captioning for Automated Software Documentation](https://arxiv.org/pdf/2301.01224.pdf)
 - [Screen2Vec: Semantic Embedding of GUI Screens and GUI Components](https://arxiv.org/pdf/2101.11103.pdf)
 - [ScreenSeg: On-Device Screenshot Layout Analysis](https://arxiv.org/pdf/2104.08052.pdf)
 - [Screen Parsing: Towards Reverse Engineering of UI Models from Screenshots](https://arxiv.org/pdf/2109.08763.pdf)
