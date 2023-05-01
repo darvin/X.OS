@@ -8,7 +8,10 @@ https://user-images.githubusercontent.com/309302/233943279-dc01f291-ca41-4ca9-8f
 
 ## Research
 
-### Segment Anything Screenshot Inference
+### [Segment Anything](https://github.com/facebookresearch/segment-anything) Screenshot Inference
+
+* note: Segment Anything got ONNX runtime export, inference runs ~2 sec locally full screen in-browser on macbook pro
+
 <img width="874" alt="Screenshot 2023-05-02 at 1 39 24 AM" src="https://user-images.githubusercontent.com/309302/235544099-ba077ee3-2809-4113-b736-fb3432e0c77b.png">
 <img width="729" alt="Screenshot 2023-05-02 at 1 33 15 AM" src="https://user-images.githubusercontent.com/309302/235544126-08b54ed1-ae4c-41f8-8122-4071ec1ca882.png">
 
