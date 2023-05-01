@@ -9,12 +9,17 @@ https://user-images.githubusercontent.com/309302/233943279-dc01f291-ca41-4ca9-8f
 ## Research
 
 ### Papers
-
+- [Screen2Vec: Semantic Embedding of GUI Screens and GUI Components](https://arxiv.org/pdf/2101.11103.pdf)
+- [ScreenSeg: On-Device Screenshot Layout Analysis](https://arxiv.org/pdf/2104.08052.pdf)
 - [DroidBot-GPT: GPT-powered UI Automation for Android](https://arxiv.org/pdf/2304.07061v1.pdf)
 - [Lexi: Self-Supervised Learning of the UI Language](https://arxiv.org/pdf/2301.10165v1.pdf)
 - [Interactive Task Learning from GUI-Grounded Natural Language Instructions and Demonstrations](https://aclanthology.org/2020.acl-demos.25.pdf)
 - [Mapping Natural Language Instructions to Mobile UI Action Sequences](https://arxiv.org/pdf/2005.03776v2.pdf)
-
+- [Fill in the Blank: Context-aware Automated Text Input Generation for Mobile GUI Testing](https://arxiv.org/pdf/2212.04732.pdf)
+- [Understanding Mobile GUI: from Pixel-Words to Screen-Sentences](https://arxiv.org/pdf/2105.11941.pdf)
+- [Text Extraction and Retrieval from Smartphone Screenshots: Building a Repository for Life in Media](https://arxiv.org/pdf/1801.01316.pdf) *old*
+- [GUESS WHAT’S ON MY SCREEN? CLUSTERING SMARTPHONE SCREENSHOTS WITH ACTIVE LEARNING](https://arxiv.org/pdf/1901.02701.pdf) *old*
+- [On-Device Information Extraction from Screenshots in form of tags](https://arxiv.org/pdf/2001.06094.pdf)
 
 ### Datasets
 
@@ -23,6 +28,7 @@ https://user-images.githubusercontent.com/309302/233943279-dc01f291-ca41-4ca9-8f
  ### Similiar projects
  
   - [SUGILITE](https://github.com/tobyli/Sugilite_development)  is a programming-by-demonstration (PBD) system for Android
+    - [Towards Effective Human-AI Collaboration in GUI-Based Interactive Task Learning Agents](https://arxiv.org/pdf/2003.02622.pdf)
   - [Seq2act](https://github.com/deepneuralmachine/seq2act-tensorflow)
 
 ## Features
