@@ -231,19 +231,18 @@
 		9A70652429AB83260049E29B /* OSXLogger */ = {
 			isa = PBXGroup;
 			children = (
-				9A06C72829F2D1F600CF0FAA /* SECRET.plist */,
-				9A06C71D29F2BEBB00CF0FAA /* Info.plist */,
-				9A06C6FE29F0544500CF0FAA /* OSXLogger-Bridging-Header.h */,
-				9A06C70929F28F2800CF0FAA /* UIState.swift */,
 				9A06C6A829EC41EA00CF0FAA /* Vision */,
 				9A06C6A229EC398500CF0FAA /* KeyboardShortcuts */,
 				9AE6D92B29AB8CB3004B7349 /* Capture */,
 				9AE6D92A29AB8CA9004B7349 /* Views */,
 				9A06C70B29F2A32500CF0FAA /* AppWindows */,
+				9A9ABA842A0132F50092CEB2 /* Assistant */,
 				9A70652E29AB83270049E29B /* OSXLogger.entitlements */,
+				9A06C72829F2D1F600CF0FAA /* SECRET.plist */,
+				9A06C71D29F2BEBB00CF0FAA /* Info.plist */,
+				9A06C6FE29F0544500CF0FAA /* OSXLogger-Bridging-Header.h */,
 				9A70652929AB83270049E29B /* Assets.xcassets */,
 				9A70652B29AB83270049E29B /* Preview Content */,
-				9A06C72629F2D1A300CF0FAA /* Assistant.swift */,
 			);
 			path = OSXLogger;
 			sourceTree = "<group>";
@@ -273,9 +272,18 @@
 			path = OSXLoggerUITests;
 			sourceTree = "<group>";
 		};
+		9A9ABA842A0132F50092CEB2 /* Assistant */ = {
+			isa = PBXGroup;
+			children = (
+				9A06C72629F2D1A300CF0FAA /* Assistant.swift */,
+			);
+			path = Assistant;
+			sourceTree = "<group>";
+		};
 		9AE6D92A29AB8CA9004B7349 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9A06C70929F28F2800CF0FAA /* UIState.swift */,
 				9A06C70629F28D2A00CF0FAA /* Helpers */,
 				9A06C6F029F00C5200CF0FAA /* CornerMarkersOverlay */,
 				9A06C6AF29EC4B9400CF0FAA /* SelectingOverlay */,

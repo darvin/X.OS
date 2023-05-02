@@ -743,8 +743,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
-            landmarkName = "resetSelection()"
-            landmarkType = "7">
+            landmarkName = "UIState"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "AD26F12A-DBCD-4EAF-84E8-9C1897EE1E7A - 86c7fbb35917a7a4"
@@ -791,8 +791,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
             endingLineNumber = "72"
-            landmarkName = "toggleSelecting()"
-            landmarkType = "7">
+            landmarkName = "UIState"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "D6A42F1E-3240-4D8C-8E82-480678CFCE53 - 2a5dd75f905e5a9"

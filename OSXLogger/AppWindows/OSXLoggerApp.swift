@@ -18,7 +18,7 @@ struct XOSApp: App {
     @StateObject var screenAnalyzer = ScreenAnalyzer()
     @StateObject var uiState = UIState()
     var body: some Scene {
-        MenuBarExtra("UtilityApp", systemImage: "hammer") {
+        MenuBarExtra("UtilityApp", systemImage: "apple.logo") {
             AppMenu()
                 .environmentObject(screenAnalyzer)
                 .environmentObject(screenRecorder)
