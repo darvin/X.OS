@@ -10,6 +10,12 @@ private let isOverlaysVisibleInitially = true
 
 @MainActor
 class UIState: ObservableObject {
+    static let shared = UIState()
+    private init() {}
+
+    @Published
+    var isCommandPalletePresented = false
+
     @Published
     var isSelectionWindowPresented = false
 
@@ -30,6 +36,10 @@ class UIState: ObservableObject {
 
     @Published
     var isSelecting = false
+
+    func toggleCommandPallete() {
+        isCommandPalletePresented.toggle()
+    }
 
     func toggleOverlay() {
         isWindowOverlayVisible.toggle()

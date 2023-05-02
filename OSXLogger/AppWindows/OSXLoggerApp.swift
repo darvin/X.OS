@@ -16,15 +16,26 @@ struct XOSApp: App {
 
     @StateObject var screenRecorder = ScreenRecorder()
     @StateObject var screenAnalyzer = ScreenAnalyzer()
-    @StateObject var uiState = UIState()
+    @StateObject var uiState = UIState.shared
+
+    @State var isCommandPalleteOverlayPresented = true
+
     var body: some Scene {
         MenuBarExtra("UtilityApp", systemImage: "apple.logo") {
             AppMenu()
                 .environmentObject(screenAnalyzer)
                 .environmentObject(screenRecorder)
                 .environmentObject(uiState)
-                .FullscreenPanel(isPresented: $uiState.isMainOverlayWindowPresented) {
+                .overlayPanel(isPresented: $uiState.isMainOverlayWindowPresented, ignoresMouseEvents: true, fullscreen: true) {
                     OverlayView()
+                        .environmentObject(screenAnalyzer)
+                        .environmentObject(screenRecorder)
+                        .environmentObject(uiState)
+                }
+
+                .overlayPanel(isPresented: $isCommandPalleteOverlayPresented) {
+                    CommandPalleteOverlayView()
+                        //                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .environmentObject(screenAnalyzer)
                         .environmentObject(screenRecorder)
                         .environmentObject(uiState)

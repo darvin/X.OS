@@ -25,7 +25,6 @@
 		9A06C71629F2B47300CF0FAA /* FloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C71529F2B47300CF0FAA /* FloatingPanel.swift */; };
 		9A06C71829F2B5A000CF0FAA /* AppMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C71729F2B5A000CF0FAA /* AppMenu.swift */; };
 		9A06C71A29F2B5A800CF0FAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C71929F2B5A800CF0FAA /* AppDelegate.swift */; };
-		9A06C71C29F2BA7300CF0FAA /* FullscreenPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C71B29F2BA7300CF0FAA /* FullscreenPanel.swift */; };
 		9A06C71E29F2BEBB00CF0FAA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A06C71D29F2BEBB00CF0FAA /* Info.plist */; };
 		9A06C72029F2C35B00CF0FAA /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C71F29F2C35B00CF0FAA /* SelectionView.swift */; };
 		9A06C72229F2C6B000CF0FAA /* SelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06C72129F2C6B000CF0FAA /* SelectionViewModel.swift */; };
@@ -43,6 +42,9 @@
 		9A70655329AB84540049E29B /* CaptureEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70655129AB84540049E29B /* CaptureEngine.swift */; };
 		9A70655629AB848E0049E29B /* CapturePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70655429AB848E0049E29B /* CapturePreview.swift */; };
 		9A70655729AB848E0049E29B /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A70655529AB848E0049E29B /* MaterialView.swift */; };
+		9A9ABA872A015F150092CEB2 /* CommandPalleteOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9ABA862A015F150092CEB2 /* CommandPalleteOverlayView.swift */; };
+		9A9ABA892A015F250092CEB2 /* CommandPalleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9ABA882A015F250092CEB2 /* CommandPalleteView.swift */; };
+		9A9ABA8B2A016BD80092CEB2 /* OverlayPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9ABA8A2A016BD80092CEB2 /* OverlayPanel.swift */; };
 		9AE6D92929AB8C99004B7349 /* WindowLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D92829AB8C99004B7349 /* WindowLayoutView.swift */; };
 		9AE6D92D29AB8DDE004B7349 /* DisplayListLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D92C29AB8DDE004B7349 /* DisplayListLayoutView.swift */; };
 		9AE6D92F29AB8E04004B7349 /* DisplayLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D92E29AB8E04004B7349 /* DisplayLayoutView.swift */; };
@@ -84,7 +86,6 @@
 		9A06C71529F2B47300CF0FAA /* FloatingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanel.swift; sourceTree = "<group>"; };
 		9A06C71729F2B5A000CF0FAA /* AppMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMenu.swift; sourceTree = "<group>"; };
 		9A06C71929F2B5A800CF0FAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A06C71B29F2BA7300CF0FAA /* FullscreenPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullscreenPanel.swift; sourceTree = "<group>"; };
 		9A06C71D29F2BEBB00CF0FAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A06C71F29F2C35B00CF0FAA /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		9A06C72129F2C6B000CF0FAA /* SelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewModel.swift; sourceTree = "<group>"; };
@@ -105,6 +106,9 @@
 		9A70655129AB84540049E29B /* CaptureEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureEngine.swift; sourceTree = "<group>"; };
 		9A70655429AB848E0049E29B /* CapturePreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturePreview.swift; sourceTree = "<group>"; };
 		9A70655529AB848E0049E29B /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		9A9ABA862A015F150092CEB2 /* CommandPalleteOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandPalleteOverlayView.swift; sourceTree = "<group>"; };
+		9A9ABA882A015F250092CEB2 /* CommandPalleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandPalleteView.swift; sourceTree = "<group>"; };
+		9A9ABA8A2A016BD80092CEB2 /* OverlayPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayPanel.swift; sourceTree = "<group>"; };
 		9AE6D92829AB8C99004B7349 /* WindowLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowLayoutView.swift; sourceTree = "<group>"; };
 		9AE6D92C29AB8DDE004B7349 /* DisplayListLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayListLayoutView.swift; sourceTree = "<group>"; };
 		9AE6D92E29AB8E04004B7349 /* DisplayLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLayoutView.swift; sourceTree = "<group>"; };
@@ -191,7 +195,7 @@
 		9A06C70629F28D2A00CF0FAA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				9A06C71B29F2BA7300CF0FAA /* FullscreenPanel.swift */,
+				9A9ABA8A2A016BD80092CEB2 /* OverlayPanel.swift */,
 				9A06C70729F28D3F00CF0FAA /* TrackingAreaView.swift */,
 				9A06C71529F2B47300CF0FAA /* FloatingPanel.swift */,
 			);
@@ -201,6 +205,8 @@
 		9A06C70B29F2A32500CF0FAA /* AppWindows */ = {
 			isa = PBXGroup;
 			children = (
+				9A06C70929F28F2800CF0FAA /* UIState.swift */,
+				9A06C6A229EC398500CF0FAA /* KeyboardShortcuts */,
 				9A70652529AB83260049E29B /* OSXLoggerApp.swift */,
 				9A06C71729F2B5A000CF0FAA /* AppMenu.swift */,
 				9A06C71929F2B5A800CF0FAA /* AppDelegate.swift */,
@@ -232,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				9A06C6A829EC41EA00CF0FAA /* Vision */,
-				9A06C6A229EC398500CF0FAA /* KeyboardShortcuts */,
 				9AE6D92B29AB8CB3004B7349 /* Capture */,
 				9AE6D92A29AB8CA9004B7349 /* Views */,
 				9A06C70B29F2A32500CF0FAA /* AppWindows */,
@@ -280,10 +285,19 @@
 			path = Assistant;
 			sourceTree = "<group>";
 		};
+		9A9ABA852A015E850092CEB2 /* CommandPallete */ = {
+			isa = PBXGroup;
+			children = (
+				9A9ABA862A015F150092CEB2 /* CommandPalleteOverlayView.swift */,
+				9A9ABA882A015F250092CEB2 /* CommandPalleteView.swift */,
+			);
+			path = CommandPallete;
+			sourceTree = "<group>";
+		};
 		9AE6D92A29AB8CA9004B7349 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9A06C70929F28F2800CF0FAA /* UIState.swift */,
+				9A9ABA852A015E850092CEB2 /* CommandPallete */,
 				9A06C70629F28D2A00CF0FAA /* Helpers */,
 				9A06C6F029F00C5200CF0FAA /* CornerMarkersOverlay */,
 				9A06C6AF29EC4B9400CF0FAA /* SelectingOverlay */,
@@ -468,6 +482,7 @@
 				9A06C6AC29EC423100CF0FAA /* VisionWorker.swift in Sources */,
 				9AE6D92929AB8C99004B7349 /* WindowLayoutView.swift in Sources */,
 				9A06C70329F0551300CF0FAA /* Shaders.metal in Sources */,
+				9A9ABA892A015F250092CEB2 /* CommandPalleteView.swift in Sources */,
 				9A06C6AE29EC42DB00CF0FAA /* ScreenAnalyzer.swift in Sources */,
 				9A06C72729F2D1A300CF0FAA /* Assistant.swift in Sources */,
 				9A70655729AB848E0049E29B /* MaterialView.swift in Sources */,
@@ -475,9 +490,10 @@
 				9A06C6A729EC3A0600CF0FAA /* SettingsView.swift in Sources */,
 				9A70655629AB848E0049E29B /* CapturePreview.swift in Sources */,
 				9A06C72029F2C35B00CF0FAA /* SelectionView.swift in Sources */,
-				9A06C71C29F2BA7300CF0FAA /* FullscreenPanel.swift in Sources */,
+				9A9ABA872A015F150092CEB2 /* CommandPalleteOverlayView.swift in Sources */,
 				9A06C6F829F020F400CF0FAA /* Geometry.swift in Sources */,
 				9A70655229AB84540049E29B /* ScreenRecorder.swift in Sources */,
+				9A9ABA8B2A016BD80092CEB2 /* OverlayPanel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,32 +2,31 @@
 //  OverlayPanel.swift
 //  OSXLogger
 //
-//  Created by standard on 4/21/23.
+//  Created by standard on 5/2/23.
 //
-
-import Foundation
 
 import SwiftUI
 
-/// Add a  ``FullscreenPanel`` to a view hierarchy
-private struct FullscreenPanelModifier<PanelContent: View>: ViewModifier {
-    /// Determines wheter the panel should be presented or not
+private struct OverlayPanelModifier<PanelContent: View>: ViewModifier {
     @Binding var isPresented: Bool
 
-    /// Determines the starting size of the panel
+    var ignoresMouseEvents = false
+    var fullscreen = false
+
     var contentRect: CGRect = .init(x: 0, y: 0, width: 624, height: 512)
 
     /// Holds the panel content's view closure
     @ViewBuilder let view: () -> PanelContent
 
     /// Stores the panel instance with the same generic type as the view closure
-    @State var panel: FullscreenPanel<PanelContent>?
+    @State var panel: OverlayPanel<PanelContent>?
 
     func body(content: Content) -> some View {
         content
             .onAppear {
                 /// When the view appears, create, center and present the panel if ordered
-                panel = FullscreenPanel(view: view, contentRect: contentRect, isPresented: $isPresented)
+                panel = OverlayPanel(view: view, contentRect: contentRect, isPresented: $isPresented, fullscreen: fullscreen)
+                panel?.ignoresMouseEvents = ignoresMouseEvents
                 panel?.center()
                 if isPresented {
                     present()
@@ -42,6 +41,7 @@ private struct FullscreenPanelModifier<PanelContent: View>: ViewModifier {
                     present()
                 } else {
                     panel?.close()
+                    panel = nil
                 }
             }
     }
@@ -53,16 +53,19 @@ private struct FullscreenPanelModifier<PanelContent: View>: ViewModifier {
     }
 }
 
-class FullscreenPanel<Content: View>: NSPanel {
+class OverlayPanel<Content: View>: NSPanel {
     @Binding var isPresented: Bool
-    init(view: () -> Content,
+    let fullscreen: Bool
+    init(@ViewBuilder view: @escaping () -> Content,
          contentRect: NSRect,
          backing: NSWindow.BackingStoreType = .buffered,
          defer flag: Bool = false,
-         isPresented: Binding<Bool>)
+         isPresented: Binding<Bool>,
+         fullscreen: Bool = false)
     {
         /// Initialize the binding variable by assigning the whole value via an underscore
         _isPresented = isPresented
+        self.fullscreen = fullscreen
 
         /// Init the window as usual
         super.init(contentRect: contentRect,
@@ -74,52 +77,57 @@ class FullscreenPanel<Content: View>: NSPanel {
         isFloatingPanel = true
         level = .floating
 
-        /// Allow the pannel to be overlaid in a fullscreen space
+        /// Allow the pannel to be overlaid in a Overlay space
         collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
 
         titlebarAppearsTransparent = true
         isOpaque = false
-//        backgroundColor = NSColor(calibratedWhite: 0.3, alpha: 0.4)
         backgroundColor = NSColor.clear
         level = NSWindow.Level.mainMenu + 1
-        ignoresMouseEvents = true
 
         contentView = NSHostingView(rootView: view()
             .ignoresSafeArea()
-            .environment(\.FullscreenPanel, self))
+            .environment(\.OverlayPanel, self))
     }
 
     override func constrainFrameRect(_ frameRect: NSRect, to screen: NSScreen?) -> NSRect {
-        if let screenFrame = screen?.frame {
-            return screenFrame
-        } else if let screenFrame = NSScreen.main?.frame {
-            return screenFrame
+        if fullscreen {
+            if let screenFrame = screen?.frame {
+                return screenFrame
+            } else if let screenFrame = NSScreen.main?.frame {
+                return screenFrame
+            }
         }
-        return frameRect
+
+        var newFrameRect = frameRect
+        newFrameRect.origin.y = 30 // very bottom of the screen
+        return newFrameRect
     }
 }
 
-private struct FullscreenPanelKey: EnvironmentKey {
+private struct OverlayPanelKey: EnvironmentKey {
     static let defaultValue: NSPanel? = nil
 }
 
 extension EnvironmentValues {
-    var FullscreenPanel: NSPanel? {
-        get { self[FullscreenPanelKey.self] }
-        set { self[FullscreenPanelKey.self] = newValue }
+    var OverlayPanel: NSPanel? {
+        get { self[OverlayPanelKey.self] }
+        set { self[OverlayPanelKey.self] = newValue }
     }
 }
 
 extension View {
-    /** Present a ``FullscreenPanel`` in SwiftUI fashion
+    /** Present a ``OverlayPanel`` in SwiftUI fashion
      - Parameter isPresented: A boolean binding that keeps track of the panel's presentation state
      - Parameter contentRect: The initial content frame of the window
      - Parameter content: The displayed content
      **/
-    func FullscreenPanel<Content: View>(isPresented: Binding<Bool>,
-                                        contentRect: CGRect = CGRect(x: 0, y: 0, width: 624, height: 512),
-                                        @ViewBuilder content: @escaping () -> Content) -> some View
+    func overlayPanel<Content: View>(isPresented: Binding<Bool>,
+                                     ignoresMouseEvents: Bool = false,
+                                     fullscreen: Bool = false,
+                                     contentRect: CGRect = CGRect(x: 0, y: 0, width: 624, height: 512),
+                                     @ViewBuilder content: @escaping () -> Content) -> some View
     {
-        modifier(FullscreenPanelModifier(isPresented: isPresented, contentRect: contentRect, view: content))
+        modifier(OverlayPanelModifier(isPresented: isPresented, ignoresMouseEvents: ignoresMouseEvents, fullscreen: fullscreen, contentRect: contentRect, view: content))
     }
 }

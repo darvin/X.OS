@@ -68,18 +68,6 @@ struct OverlayView: View {
                     isUnauthorized = true
                 }
             }
-
-            KeyboardShortcuts.onKeyUp(for: .toggleOverlay) { [self] in
-                DispatchQueue.main.async {
-                    uiState.toggleOverlay()
-                }
-            }
-
-            KeyboardShortcuts.onKeyUp(for: .toggleSelecting) { [self] in
-                DispatchQueue.main.async {
-                    uiState.toggleSelecting()
-                }
-            }
         }
     }
 }
