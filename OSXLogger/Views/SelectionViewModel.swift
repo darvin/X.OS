@@ -39,6 +39,7 @@ class SelectionViewModel: ObservableObject {
                 Task {
                     await self.assistant.respond(to: self.selectedText)
                     self.responseText = self.assistant.lastResponse
+                    self.uiState.resetSelection()
                 }
             }
         }

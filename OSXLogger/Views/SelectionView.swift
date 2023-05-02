@@ -12,9 +12,11 @@ struct SelectionView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text(selectionViewModel.selectedText)
+                TextEditor(text: $selectionViewModel.selectedText)
                     .font(.system(size: 14))
                     .italic()
+                    .textFieldStyle(.roundedBorder)
+//                    .lineLimit(5, reservesSpace: true)
                 Spacer()
 
                 if selectionViewModel.isLoading {
