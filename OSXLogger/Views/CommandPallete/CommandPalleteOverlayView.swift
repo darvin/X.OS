@@ -8,16 +8,20 @@
 import SwiftUI
 
 struct CommandPalleteOverlayView: View {
+    static let overlayWidthRatio = 0.8
+    static let overlayHeight = 40
+
     @EnvironmentObject var uiState: UIState
 
     var body: some View {
-        HStack(alignment: .bottom) {
-            VStack(alignment: .center) {
-                if uiState.isCommandPalletePresented {
-                    CommandPalleteView()
-                }
-            }
+//        HStack(alignment: .bottom) {
+//            VStack(alignment: .center) {
+        if uiState.isCommandPalletePresented {
+            CommandPalleteView()
+                .frame(width: CommandPalleteOverlayView.overlayWidthRatio * NSScreen.main!.frame.width)
         }
+//            }
+//        }
     }
 }
 

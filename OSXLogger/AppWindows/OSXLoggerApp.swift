@@ -33,7 +33,7 @@ struct XOSApp: App {
                         .environmentObject(uiState)
                 }
 
-                .overlayPanel(isPresented: $isCommandPalleteOverlayPresented) {
+                .overlayPanel(isPresented: $isCommandPalleteOverlayPresented, contentRect: CGRect(x: 0, y: 0, width: Int(CommandPalleteOverlayView.overlayWidthRatio * NSScreen.main!.frame.width), height: CommandPalleteOverlayView.overlayHeight)) {
                     CommandPalleteOverlayView()
                         //                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .environmentObject(screenAnalyzer)

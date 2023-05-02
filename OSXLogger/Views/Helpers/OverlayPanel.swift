@@ -27,7 +27,7 @@ private struct OverlayPanelModifier<PanelContent: View>: ViewModifier {
                 /// When the view appears, create, center and present the panel if ordered
                 panel = OverlayPanel(view: view, contentRect: contentRect, isPresented: $isPresented, fullscreen: fullscreen)
                 panel?.ignoresMouseEvents = ignoresMouseEvents
-                panel?.center()
+//                panel?.center()
                 if isPresented {
                     present()
                 }
@@ -41,7 +41,7 @@ private struct OverlayPanelModifier<PanelContent: View>: ViewModifier {
                     present()
                 } else {
                     panel?.close()
-                    panel = nil
+//                    panel = nil
                 }
             }
     }
@@ -91,17 +91,56 @@ class OverlayPanel<Content: View>: NSPanel {
     }
 
     override func constrainFrameRect(_ frameRect: NSRect, to screen: NSScreen?) -> NSRect {
-        if fullscreen {
-            if let screenFrame = screen?.frame {
-                return screenFrame
-            } else if let screenFrame = NSScreen.main?.frame {
-                return screenFrame
-            }
+//        if fullscreen {
+//            if let screenFrame = screen?.frame {
+//                return screenFrame
+//            } else if let screenFrame = NSScreen.main?.frame {
+//                return screenFrame
+//            }
+//        }
+
+        var mainScreen = screen ?? NSScreen.main
+
+        guard let mainScreen else {
+            return super.constrainFrameRect(frameRect, to: nil)
         }
 
-        var newFrameRect = frameRect
-        newFrameRect.origin.y = 30 // very bottom of the screen
-        return newFrameRect
+        guard !fullscreen else {
+            return mainScreen.visibleFrame
+        }
+
+        var newRect = frameRect
+
+        // Set the X coordinate to center the frame on the screen
+        newRect.origin.x = mainScreen.visibleFrame.origin.x + (mainScreen.visibleFrame.width - frameRect.width) / 2
+
+        // Set the Y coordinate to position the frame at the bottom of the screen
+        newRect.origin.y = 30
+
+        return newRect
+    }
+
+    /// Close automatically when out of focus, e.g. outside click
+    override func resignMain() {
+        super.resignMain()
+//        if !fullscreen {
+//            close()
+//        }
+    }
+
+    /// Close and toggle presentation, so that it matches the current state of the panel
+    override func close() {
+        super.close()
+//        isPresented = false
+    }
+
+    /// `canBecomeKey` and `canBecomeMain` are both required so that text inputs inside the panel can receive focus
+    override var canBecomeKey: Bool {
+        return !fullscreen
+    }
+
+    override var canBecomeMain: Bool {
+        return !fullscreen
     }
 }
 
