@@ -49,6 +49,10 @@ class ScreenAnalyzer: ObservableObject {
     @Published var hands: [VNHumanHandPoseObservation] = []
     @Published var humanBodyPoses: [VNHumanBodyPoseObservation] = []
 
+    var textFilter: (VNRecognizedTextObservation) -> Bool = { _ in
+        false
+    }
+
     private var _screenRecorder: ScreenRecorder?
     private var subscriptions = Set<AnyCancellable>()
     private let textRecognizer = TextRecognizer()
@@ -87,9 +91,9 @@ class ScreenAnalyzer: ObservableObject {
             )
 
             .receive(on: RunLoop.main)
-            .sink { observations in
+            .sink { [unowned self] observations in
                 self.objects = observations.filter { $0 is VNRecognizedObjectObservation } as! [VNRecognizedObjectObservation]
-                self.text = observations.filter { $0 is VNRecognizedTextObservation } as! [VNRecognizedTextObservation]
+                self.text = (observations.filter { $0 is VNRecognizedTextObservation } as! [VNRecognizedTextObservation]).filter(self.textFilter)
                 self.hands = observations.filter { $0 is VNHumanHandPoseObservation } as! [VNHumanHandPoseObservation]
                 self.humanBodyPoses = observations.filter { $0 is VNHumanBodyPoseObservation } as! [VNHumanBodyPoseObservation]
 

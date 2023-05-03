@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CommandPalleteView: View {
-    @StateObject var vm = CommandPalleteViewModel()
+    @StateObject var vm: CommandPalleteViewModel
+    @FocusState var isFocused: Bool
 
     var body: some View {
         VStack(spacing: 10) {
@@ -23,6 +24,7 @@ struct CommandPalleteView: View {
                                     .frame(width: 30, height: 30)
                                     .padding(.horizontal)
                                 Text(action.rawValue)
+                                    .focused($isFocused)
                             }
                         }
                     }
@@ -36,7 +38,8 @@ struct CommandPalleteView: View {
                 .frame(width: 40)
                 .padding(.trailing)
 
-                TextField("", text: $vm.command)
+                MaterialTextField(placeholder: "", text: $vm.command)
+                    .focused($isFocused)
                     .font(.system(size: 24))
                     .foregroundColor(Color.pink)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -45,11 +48,10 @@ struct CommandPalleteView: View {
         }
         .background(Color.red.opacity(0.2))
         .cornerRadius(4.0)
-    }
-}
-
-struct CommandPalleteView_Previews: PreviewProvider {
-    static var previews: some View {
-        CommandPalleteView()
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                isFocused = true
+            }
+        }
     }
 }

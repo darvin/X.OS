@@ -74,8 +74,8 @@ class OverlayPanel<Content: View>: NSPanel {
                    defer: flag)
 
         /// Allow the panel to be on top of other windows
-        isFloatingPanel = true
-        level = .floating
+//        isFloatingPanel = true
+//        level = .floating
 
         /// Allow the pannel to be overlaid in a Overlay space
         collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
@@ -83,7 +83,7 @@ class OverlayPanel<Content: View>: NSPanel {
         titlebarAppearsTransparent = true
         isOpaque = false
         backgroundColor = NSColor.clear
-        level = NSWindow.Level.mainMenu + 1
+        level = .mainMenu + 100
 
         contentView = NSHostingView(rootView: view()
             .ignoresSafeArea()

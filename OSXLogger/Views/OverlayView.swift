@@ -35,6 +35,7 @@ struct OverlayView: View {
             }
 
             MetalView()
+//                .background(Color.red.opacity(0.1))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .opacity(uiState.isCornerMarkersOverlayVisible ? 0.7 : 0.0)
                 .environmentObject(screenAnalyzer)

@@ -12,12 +12,13 @@ struct CommandPalleteOverlayView: View {
     static let overlayHeight = 40
 
     @EnvironmentObject var uiState: UIState
+    @EnvironmentObject var screenAnalyzer: ScreenAnalyzer
 
     var body: some View {
 //        HStack(alignment: .bottom) {
 //            VStack(alignment: .center) {
         if uiState.isCommandPalletePresented {
-            CommandPalleteView()
+            CommandPalleteView(vm: CommandPalleteViewModel(screenAnalyzer: screenAnalyzer))
                 .frame(width: CommandPalleteOverlayView.overlayWidthRatio * NSScreen.main!.frame.width)
         }
 //            }

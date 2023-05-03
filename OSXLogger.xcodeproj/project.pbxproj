@@ -46,6 +46,7 @@
 		9A9ABA892A015F250092CEB2 /* CommandPalleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9ABA882A015F250092CEB2 /* CommandPalleteView.swift */; };
 		9A9ABA8B2A016BD80092CEB2 /* OverlayPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9ABA8A2A016BD80092CEB2 /* OverlayPanel.swift */; };
 		9A9ABA8D2A0179340092CEB2 /* CommandPalleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9ABA8C2A0179340092CEB2 /* CommandPalleteViewModel.swift */; };
+		9A9ABA8F2A028D040092CEB2 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9ABA8E2A028D040092CEB2 /* MaterialTextField.swift */; };
 		9AE6D92929AB8C99004B7349 /* WindowLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D92829AB8C99004B7349 /* WindowLayoutView.swift */; };
 		9AE6D92D29AB8DDE004B7349 /* DisplayListLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D92C29AB8DDE004B7349 /* DisplayListLayoutView.swift */; };
 		9AE6D92F29AB8E04004B7349 /* DisplayLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D92E29AB8E04004B7349 /* DisplayLayoutView.swift */; };
@@ -111,6 +112,7 @@
 		9A9ABA882A015F250092CEB2 /* CommandPalleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandPalleteView.swift; sourceTree = "<group>"; };
 		9A9ABA8A2A016BD80092CEB2 /* OverlayPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayPanel.swift; sourceTree = "<group>"; };
 		9A9ABA8C2A0179340092CEB2 /* CommandPalleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandPalleteViewModel.swift; sourceTree = "<group>"; };
+		9A9ABA8E2A028D040092CEB2 /* MaterialTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
 		9AE6D92829AB8C99004B7349 /* WindowLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowLayoutView.swift; sourceTree = "<group>"; };
 		9AE6D92C29AB8DDE004B7349 /* DisplayListLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayListLayoutView.swift; sourceTree = "<group>"; };
 		9AE6D92E29AB8E04004B7349 /* DisplayLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLayoutView.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				9A9ABA862A015F150092CEB2 /* CommandPalleteOverlayView.swift */,
 				9A9ABA882A015F250092CEB2 /* CommandPalleteView.swift */,
 				9A9ABA8C2A0179340092CEB2 /* CommandPalleteViewModel.swift */,
+				9A9ABA8E2A028D040092CEB2 /* MaterialTextField.swift */,
 			);
 			path = CommandPallete;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				9A70655329AB84540049E29B /* CaptureEngine.swift in Sources */,
 				9A70652829AB83260049E29B /* OverlayView.swift in Sources */,
 				9AE6D92F29AB8E04004B7349 /* DisplayLayoutView.swift in Sources */,
+				9A9ABA8F2A028D040092CEB2 /* MaterialTextField.swift in Sources */,
 				9A06C6AA29EC41FB00CF0FAA /* TextRecognizer.swift in Sources */,
 				9A06C6FD29F0541C00CF0FAA /* Renderer.swift in Sources */,
 				9AE6D92D29AB8DDE004B7349 /* DisplayListLayoutView.swift in Sources */,
