@@ -6,48 +6,37 @@
 //
 
 import SwiftUI
-enum CommandIcon: String, CaseIterable {
-    case applelogo = "Apple"
-    case magnifyingglass = "Find"
-    case circleGridHex = "Other"
-
-    var image: Image {
-        switch self {
-        case .applelogo:
-            return Image(systemName: "applelogo")
-        case .magnifyingglass:
-            return Image(systemName: "magnifyingglass")
-        case .circleGridHex:
-            return Image(systemName: "circle.grid.hex")
-        }
-    }
-}
 
 struct CommandPalleteView: View {
-    @State private var selectedIcon = CommandIcon.applelogo
-    @State private var command = ""
+    @StateObject var vm = CommandPalleteViewModel()
 
     var body: some View {
         VStack(spacing: 10) {
             HStack {
-                selectedIcon.image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30, height: 30)
-                    .padding(.horizontal)
-
                 Menu {
-                    ForEach(CommandIcon.allCases, id: \.self) { icon in
-                        Button(action: { selectedIcon = icon }) {
-                            Label(icon.rawValue, systemImage: icon.rawValue.lowercased())
+                    ForEach(CommandAction.allCases, id: \.self) { action in
+                        Button(action: { vm.select(action: action) }) {
+                            HStack {
+                                action.image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 30, height: 30)
+                                    .padding(.horizontal)
+                                Text(action.rawValue)
+                            }
                         }
                     }
                 } label: {
-                    Image(systemName: "chevron.down")
+                    vm.selectedAction.image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 30, height: 30)
+                        .padding(.horizontal)
                 }
+                .frame(width: 40)
                 .padding(.trailing)
 
-                TextField("Command", text: $command)
+                TextField("", text: $vm.command)
                     .font(.system(size: 24))
                     .foregroundColor(Color.pink)
                     .textFieldStyle(RoundedBorderTextFieldStyle())

@@ -45,6 +45,7 @@
 		9A9ABA872A015F150092CEB2 /* CommandPalleteOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9ABA862A015F150092CEB2 /* CommandPalleteOverlayView.swift */; };
 		9A9ABA892A015F250092CEB2 /* CommandPalleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9ABA882A015F250092CEB2 /* CommandPalleteView.swift */; };
 		9A9ABA8B2A016BD80092CEB2 /* OverlayPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9ABA8A2A016BD80092CEB2 /* OverlayPanel.swift */; };
+		9A9ABA8D2A0179340092CEB2 /* CommandPalleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9ABA8C2A0179340092CEB2 /* CommandPalleteViewModel.swift */; };
 		9AE6D92929AB8C99004B7349 /* WindowLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D92829AB8C99004B7349 /* WindowLayoutView.swift */; };
 		9AE6D92D29AB8DDE004B7349 /* DisplayListLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D92C29AB8DDE004B7349 /* DisplayListLayoutView.swift */; };
 		9AE6D92F29AB8E04004B7349 /* DisplayLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE6D92E29AB8E04004B7349 /* DisplayLayoutView.swift */; };
@@ -109,6 +110,7 @@
 		9A9ABA862A015F150092CEB2 /* CommandPalleteOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandPalleteOverlayView.swift; sourceTree = "<group>"; };
 		9A9ABA882A015F250092CEB2 /* CommandPalleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandPalleteView.swift; sourceTree = "<group>"; };
 		9A9ABA8A2A016BD80092CEB2 /* OverlayPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayPanel.swift; sourceTree = "<group>"; };
+		9A9ABA8C2A0179340092CEB2 /* CommandPalleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandPalleteViewModel.swift; sourceTree = "<group>"; };
 		9AE6D92829AB8C99004B7349 /* WindowLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowLayoutView.swift; sourceTree = "<group>"; };
 		9AE6D92C29AB8DDE004B7349 /* DisplayListLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayListLayoutView.swift; sourceTree = "<group>"; };
 		9AE6D92E29AB8E04004B7349 /* DisplayLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLayoutView.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 			children = (
 				9A9ABA862A015F150092CEB2 /* CommandPalleteOverlayView.swift */,
 				9A9ABA882A015F250092CEB2 /* CommandPalleteView.swift */,
+				9A9ABA8C2A0179340092CEB2 /* CommandPalleteViewModel.swift */,
 			);
 			path = CommandPallete;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				9A70652629AB83260049E29B /* OSXLoggerApp.swift in Sources */,
 				9A06C6F229F00DE700CF0FAA /* MetalView.swift in Sources */,
 				9A06C70A29F28F2800CF0FAA /* UIState.swift in Sources */,
+				9A9ABA8D2A0179340092CEB2 /* CommandPalleteViewModel.swift in Sources */,
 				9A06C70829F28D3F00CF0FAA /* TrackingAreaView.swift in Sources */,
 				9A06C6A429EC39C300CF0FAA /* KeyboardShortcutsConstants.swift in Sources */,
 				9A06C6B329EC4C3000CF0FAA /* VisionMarkerView.swift in Sources */,
